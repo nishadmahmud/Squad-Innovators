@@ -12,7 +12,6 @@
   --color-accent: #2563EB;
   --color-dark: #020617;
   --color-light: #F8FAFC;
-
   --animate-float: float 6s ease-in-out infinite;
   --animate-spin-slow: spin 15s linear infinite;
 }
@@ -77,4 +76,22 @@
 
 .bg-gradient-brand {
   background: linear-gradient(135deg, #030f45 0%, #0b1d6b 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00a0b5;
 }

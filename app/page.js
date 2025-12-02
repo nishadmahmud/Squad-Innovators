@@ -36,34 +36,7 @@ export default function Home() {
         <FAQSection />
         <BlogList />
         <CTASection />
-        {/* <Milestones></Milestones>
-        <TrustedMarquee></TrustedMarquee>
-        <OurServices></OurServices>
-        <OurProjects></OurProjects>
-        <TrustedBy></TrustedBy>
-        <StepCards></StepCards>
-        <WhiteLabelService></WhiteLabelService>
-        <TechStackTabs></TechStackTabs>
-        <TestimonialSection></TestimonialSection>
-        <IndustryExpertises></IndustryExpertises>
-        <StrategySection></StrategySection>
-        <BlogList></BlogList>
-        <OurProjects></OurProjects>
-        <TrustedBy></TrustedBy>
-        <StepsWithDetails></StepsWithDetails>
-        <WhiteLabelService></WhiteLabelService>
-        <TechStackTabs></TechStackTabs>
-        <TestimonialSection></TestimonialSection>
-        <IndustryExpertises></IndustryExpertises>  */}
-        {/* <KickstartSection></KickstartSection> */}
-        {/* <StrategySection></StrategySection>
-        <BlogList></BlogList> */}
-
-
-        {/* <Footer></Footer> */}
       </div>
-      {/* <ScrollToTopButton /> */}
-
     </main>
   );
 }
