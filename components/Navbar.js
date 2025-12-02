@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import { PhoneCall } from "lucide-react";
+import { PhoneCall, Palette, Smartphone, Laptop, ShoppingCart, Cloud, Settings, CreditCard } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Navbar = () => {
@@ -19,7 +19,7 @@ const Navbar = () => {
 
     return (
         <div className='fixed top-6 left-0 right-0 z-50 flex justify-center px-4'>
-            <nav className="w-full max-w-7xl bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <nav className="w-full max-w-6xl bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300">
 
                 {/* Logo */}
                 <Link href='/' className="flex items-center gap-2">
@@ -29,14 +29,45 @@ const Navbar = () => {
                 {/* Desktop Nav */}
                 <ul className="hidden lg:flex items-center gap-8 text-gray-700 font-medium">
                     {navItems.map((item) => (
-                        <li key={item.label}>
+                        <li key={item.label} className="relative group">
                             <Link
                                 href={item.href}
-                                className="relative hover:text-primary transition-colors duration-300 text-sm uppercase tracking-wide font-semibold group"
+                                className="relative hover:text-primary transition-colors duration-300 text-sm uppercase tracking-wide font-semibold flex items-center gap-1"
                             >
                                 {item.label}
+                                {item.label === "Services" && (
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"><path d="m6 9 6 6 6-6" /></svg>
+                                )}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full"></span>
                             </Link>
+
+                            {/* Dropdown for Services */}
+                            {item.label === "Services" && (
+                                <div className="absolute top-full -left-4 pt-4 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                    <div className="bg-white rounded-xl shadow-xl border border-gray-100 p-2 overflow-hidden w-72">
+                                        {[
+                                            { name: "UI/UX Design", icon: <Palette size={18} />, slug: "ui-ux-design" },
+                                            { name: "Mobile App Development", icon: <Smartphone size={18} />, slug: "mobile-app-development" },
+                                            { name: "Software Development", icon: <Laptop size={18} />, slug: "software-development" },
+                                            { name: "eCommerce Solutions", icon: <ShoppingCart size={18} />, slug: "ecommerce-solutions" },
+                                            { name: "SaaS Development", icon: <Cloud size={18} />, slug: "saas-development" },
+                                            { name: "DevOps Services", icon: <Settings size={18} />, slug: "devops-services" },
+                                            { name: "POS Solutions", icon: <CreditCard size={18} />, slug: "pos-solutions" }
+                                        ].map((service, index) => (
+                                            <Link
+                                                key={index}
+                                                href={`/services/${service.slug}`}
+                                                className="flex items-center gap-3 px-4 py-3 text-sm text-gray-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-colors capitalize group/item"
+                                            >
+                                                <span className="text-gray-400 group-hover/item:text-primary transition-colors">
+                                                    {service.icon}
+                                                </span>
+                                                {service.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </li>
                     ))}
                     <li>

@@ -27,12 +27,12 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
         <SocialSidebar />
-        <div className="max-w-[1440px] mx-auto w-full relative bg-white min-h-screen flex flex-col">
+        <div className="max-w-6xl mx-auto w-full relative bg-white min-h-screen flex flex-col">
           <Navbar />
           {children}
-          <Footer />
         </div>
+        <Footer />
       </body>
-    </html>
+    </html >
   );
 }

@@ -4,6 +4,7 @@ import React from 'react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { Calendar, Users, Briefcase, Smile } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Milestones = () => {
     const [ref, inView] = useInView({
@@ -43,29 +44,36 @@ const Milestones = () => {
     ];
 
     return (
-        <div ref={ref} className="w-full relative py-20 bg-white">
+        <div ref={ref} className="w-full relative py-12 bg-primary overflow-hidden border-y border-white/10">
+            {/* Technical Background Texture */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none"
+                style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
+            </div>
+
             <div className="container mx-auto px-4 relative z-10">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-white/10">
                     {milestones.map((item, index) => (
-                        <div
+                        <motion.div
                             key={item.id}
-                            className={`group relative p-6 rounded-2xl bg-slate-50 border border-transparent hover:border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col items-center justify-center text-center ${inView ? 'animate-fade-in-up' : 'opacity-0'}`}
-                            style={{ animationDelay: `${index * 150}ms` }}
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={inView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.4, delay: index * 0.1 }}
+                            className="flex-1 flex flex-col md:flex-row items-center justify-center gap-4 text-center md:text-left min-w-[200px] pt-6 md:pt-0 first:pt-0"
                         >
                             {/* Icon Container */}
-                            <div className="mb-6 p-4 rounded-full bg-white shadow-sm group-hover:shadow-md group-hover:bg-secondary group-hover:text-white text-gray-400 transition-all duration-300">
-                                <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                                    {React.cloneElement(item.icon, { size: 32 })}
-                                </div>
+                            <div className="p-3 rounded-full bg-white/5 text-secondary ring-1 ring-white/10">
+                                {React.cloneElement(item.icon, { size: 24 })}
                             </div>
 
-                            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-3">
-                                {inView && <CountUp end={item.count} duration={2.5} suffix={item.suffix} />}
-                            </h2>
-                            <p className="text-gray-500 text-sm md:text-base font-medium uppercase tracking-widest">
-                                {item.label}
-                            </p>
-                        </div>
+                            <div>
+                                <h2 className="text-3xl font-bold text-white leading-none mb-1">
+                                    {inView && <CountUp end={item.count} duration={2.5} suffix={item.suffix} />}
+                                </h2>
+                                <p className="text-gray-400 text-xs font-medium uppercase tracking-wider">
+                                    {item.label}
+                                </p>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

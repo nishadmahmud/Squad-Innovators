@@ -1,22 +1,43 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: #02103F;
-  --color-secondary: #00C8E0;
-  --color-accent: #2563EB;
-}
-
+/* Fonts */
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+RO:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap'); */
+
+@theme {
+  --color-primary: #030f45;
+  --color-secondary: #00C8E0;
+  --color-accent: #2563EB;
+  --color-dark: #020617;
+  --color-light: #F8FAFC;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 15s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
 
 @property --border-angle {
   inherits: false;
   initial-value: 0deg;
   syntax: '<angle>';
 }
-
 
 * {
   font-family: "Poppins", sans-serif;
@@ -28,11 +49,32 @@
 }
 
 .playwrite {
-
   font-family: "Playwrite RO", cursive;
-
 }
 
 .manrope {
   font-family: "Manrope", sans-serif;
+}
+
+/* Custom Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(3, 15, 69, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #00C8E0, #2563EB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #030f45 0%, #0b1d6b 100%);
 }

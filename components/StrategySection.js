@@ -16,6 +16,7 @@ const StrategySection = () => {
                             src="/evan-sir.jpg"
                             alt="Laptop"
                             className="md:h-64 h-40 md:w-64 w-40 object-contain rounded-full z-10"
+                            unoptimized
                         />
                     </div>
 
@@ -24,28 +25,28 @@ const StrategySection = () => {
                         {/* Top */}
                         <div className="absolute left-1/2 top-10 transform  -translate-x-1/2 -translate-y-1/2">
                             <div className="bg-white rounded-full p-2 shadow-md">
-                                <Image width={70} height={70} src="/ishan.jpeg" alt="Next.js" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" />
+                                <Image width={70} height={70} src="/ishan.jpeg" alt="Next.js" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" unoptimized />
                             </div>
                         </div>
 
                         {/* Right */}
                         <div className="absolute top-1/2 right-10 transform translate-x-1/2 -translate-y-1/2">
                             <div className="bg-white rounded-full p-2 shadow-md">
-                                <Image width={70} height={70} src="/mazhar.jpg" alt="React" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" />
+                                <Image width={70} height={70} src="/mazhar.jpg" alt="React" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" unoptimized />
                             </div>
                         </div>
 
                         {/* Bottom */}
                         <div className="absolute left-1/2 bottom-10 transform -translate-x-1/2 translate-y-1/2">
                             <div className="bg-white rounded-full p-2 shadow-md">
-                                <Image width={70} height={70} src="/mushfiq.jpg" alt="Tailwind" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" />
+                                <Image width={70} height={70} src="/mushfiq.jpg" alt="Tailwind" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" unoptimized />
                             </div>
                         </div>
 
                         {/* Left */}
                         <div className="absolute top-1/2 left-10 transform -translate-x-1/2 -translate-y-1/2">
                             <div className="bg-white rounded-full p-2 shadow-md">
-                                <Image width={70} height={70} src="/sayem.jpg" alt="Figma" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" />
+                                <Image width={70} height={70} src="/sayem.jpg" alt="Figma" className="md:h-14 w-12 md:w-14 h-12 object-contain rounded-full" unoptimized />
                             </div>
                         </div>
                     </div>

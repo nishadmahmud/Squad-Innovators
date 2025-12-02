@@ -10,18 +10,18 @@ const TrustedMarquee = () => {
             </div>
             <Marquee gradient={false} speed={40}>
                 <div className="flex items-center gap-16 px-8">
-                    <Image className='w-24 lg:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={128} height={128} alt='spronser_logo' src="/bodda.png"></Image>
-                    <Image className='w-28 lg:w-36 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={144} height={144} alt='spronser_logo' src="/apple_mart.png"></Image>
-                    <Image className='w-28 lg:w-36 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={144} height={144} alt='spronser_logo' src="/satsuna.png"></Image>
-                    <Image className='w-24 lg:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={128} height={128} alt='spronser_logo' src="/brothers.png"></Image>
-                    <Image className='w-20 lg:w-28 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={112} height={112} alt='spronser_logo' src="/bhai-bhai.png"></Image>
-                    <Image className='w-16 lg:w-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={80} height={80} alt='spronser_logo' src="/dontaion.png"></Image>
-                    <Image className='w-20 lg:w-28 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={112} height={112} alt='spronser_logo' src="/bonzer.png"></Image>
-                    <Image className='w-20 lg:w-24 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={96} height={96} alt='spronser_logo' src="/apPharma.png"></Image>
-                    <Image className='w-20 lg:w-28 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={112} height={112} alt='spronser_logo' src="/corporate-care.png"></Image>
-                    <Image className='w-16 lg:w-24 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={96} height={96} alt='spronser_logo' src="/dlm.png"></Image>
-                    <Image className='w-24 lg:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={128} height={128} alt='spronser_logo' src="/mobile_club.png"></Image>
-                    <Image className='w-12 lg:w-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={80} height={80} alt='spronser_logo' src="/PerfectGadgetBD-logo (1) 1.png"></Image>
+                    <Image className='w-24 lg:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={128} height={128} alt='spronser_logo' src="/bodda.png" unoptimized></Image>
+                    <Image className='w-28 lg:w-36 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={144} height={144} alt='spronser_logo' src="/apple_mart.png" unoptimized></Image>
+                    <Image className='w-28 lg:w-36 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={144} height={144} alt='spronser_logo' src="/satsuna.png" unoptimized></Image>
+                    <Image className='w-24 lg:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={128} height={128} alt='spronser_logo' src="/brothers.png" unoptimized></Image>
+                    <Image className='w-20 lg:w-28 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={112} height={112} alt='spronser_logo' src="/bhai-bhai.png" unoptimized></Image>
+                    <Image className='w-16 lg:w-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={80} height={80} alt='spronser_logo' src="/dontaion.png" unoptimized></Image>
+                    <Image className='w-20 lg:w-28 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={112} height={112} alt='spronser_logo' src="/bonzer.png" unoptimized></Image>
+                    <Image className='w-20 lg:w-24 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={96} height={96} alt='spronser_logo' src="/apPharma.png" unoptimized></Image>
+                    <Image className='w-20 lg:w-28 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={112} height={112} alt='spronser_logo' src="/corporate-care.png" unoptimized></Image>
+                    <Image className='w-16 lg:w-24 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={96} height={96} alt='spronser_logo' src="/dlm.png" unoptimized></Image>
+                    <Image className='w-24 lg:w-32 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={128} height={128} alt='spronser_logo' src="/mobile_club.png" unoptimized></Image>
+                    <Image className='w-12 lg:w-20 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300' width={80} height={80} alt='spronser_logo' src="/PerfectGadgetBD-logo (1) 1.png" unoptimized></Image>
                 </div>
             </Marquee>
         </div>

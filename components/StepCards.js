@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
     MessageSquare,
     Calendar,
@@ -9,181 +9,113 @@ import {
     FileCheck,
     Rocket,
     Settings,
+    CheckCircle2
 } from "lucide-react";
 
 const steps = [
     {
         title: "Consultation & Discovery",
-        icon: <MessageSquare className="w-5 h-5" />,
-        description:
-            "Understanding the project goals, user needs, and technology requirements.",
-        deliverables: [
-            "Initial Consultation",
-            "Project Scoping",
-            "Needs Analysis",
-            "Goal Definition",
-            "Requirement Gathering",
-            "Feasibility Study",
-            "Strategic Planning",
-        ],
+        icon: <MessageSquare className="w-6 h-6" />,
+        description: "Understanding your goals, user needs, and technology requirements.",
+        deliverables: ["Project Scoping", "Needs Analysis", "Strategic Planning"],
     },
     {
         title: "Planning & Design",
-        icon: <Calendar className="w-5 h-5" />,
-        description:
-            "Plan structure, design UI/UX, and create wireframes for feedback.",
-        deliverables: [
-            "Wireframes & Mockups",
-            "User Journey Mapping",
-            "UI/UX Design",
-        ],
+        icon: <Calendar className="w-6 h-6" />,
+        description: "Architecting the solution and designing intuitive user experiences.",
+        deliverables: ["Wireframes", "UI/UX Design", "Technical Architecture"],
     },
     {
         title: "Development",
-        icon: <Code className="w-5 h-5" />,
-        description:
-            "Actual development of the application following best coding practices.",
-        deliverables: [
-            "Frontend & Backend Implementation",
-            "API Integration",
-            "Database Design",
-        ],
+        icon: <Code className="w-6 h-6" />,
+        description: "Writing clean, scalable code following industry best practices.",
+        deliverables: ["Frontend & Backend", "API Integration", "Database Setup"],
     },
     {
-        title: "Testing & Feedback",
-        icon: <FileCheck className="w-5 h-5" />,
-        description:
-            "We test the application thoroughly, fix bugs, and gather feedback to make improvements. The result is a polished, ready-to-launch product.",
-        deliverables: [
-            "Test Plan (Functional, Usability, Performance Testing)",
-            "Bug/Issue Tracking Report",
-            "User Feedback Report (if applicable)",
-            "Finalized Application After Bug Fixes",
-            "User Acceptance Testing (UAT) Approval",
-            "App Store Readiness/Compliance Checks",
-        ],
+        title: "Testing & QA",
+        icon: <FileCheck className="w-6 h-6" />,
+        description: "Rigorous testing to ensure a bug-free, high-performance product.",
+        deliverables: ["Functional Testing", "Performance Tuning", "Security Checks"],
     },
     {
         title: "Launch & Deployment",
-        icon: <Rocket className="w-5 h-5" />,
-        description:
-            "Deploy the application to production and ensure everything is running smoothly.",
-        deliverables: [
-            "Server Setup",
-            "Deployment Scripts",
-            "Post-Launch Support",
-        ],
+        icon: <Rocket className="w-6 h-6" />,
+        description: "Seamless deployment to production environments.",
+        deliverables: ["Server Setup", "CI/CD Pipelines", "Go-Live Support"],
     },
     {
-        title: "Support & Maintenance",
-        icon: <Settings className="w-5 h-5" />,
-        description: "Ensure long-term success with ongoing support and maintenance.",
-        deliverables: ["Bug Fixes", "Security Updates", "Performance Monitoring"],
+        title: "Support & Growth",
+        icon: <Settings className="w-6 h-6" />,
+        description: "Continuous improvement and maintenance for long-term success.",
+        deliverables: ["24/7 Monitoring", "Feature Updates", "Scaling Support"],
     },
 ];
 
 export default function StepCards() {
-    const [activeStep, setActiveStep] = useState(0);
-
     return (
-        <div className="min-h-[80vh] py-10 pt-0 px-4">
-            <h1 className="md:text-3xl text-2xl lg:text-4xl text-center font-semibold my-10 mb-7">
-                Roadmap to Build Your <span className="text-[#10328e]">Dream Product</span>
-            </h1>
-
-            {/* Desktop View (Step Selector + Active Card) */}
-            <div className="hidden md:flex items-start justify-around gap-10 w-10/12 mx-auto">
-                {/* Left Panel - Step Selector */}
-                <div className="w-1/2 space-y-5">
-                    {steps.map((step, index) => (
-                        <div
-                            key={index}
-                            onClick={() => setActiveStep(index)}
-                            className={`flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer border transition-all duration-300 
-            ${activeStep === index
-                                    ? "bg-[#020b31] border-[#020b31] text-[#ffffff]"
-                                    : "bg-white hover:bg-gray-50 border-gray-300"
-                                }`}
-                        >
-                            <div>{step.icon}</div>
-                            <span className="text-sm font-medium">{step.title}</span>
-                        </div>
-                    ))}
+        <section className="py-24 bg-white relative overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="text-center mb-20">
+                    <span className="text-secondary font-bold tracking-wider uppercase text-sm">Our Process</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-primary mt-2 mb-6">
+                        Roadmap to <span className="text-gradient">Success</span>
+                    </h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                        A proven, transparent process that delivers exceptional results on time and within budget.
+                    </p>
                 </div>
 
-                {/* Right Panel - Active Card */}
-                <div className="w-1/2">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeStep}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.3 }}
-                            className="bg-[#020b31] h-96 border border-gray-200 rounded-2xl p-6 "
-                        >
-                            <div className="flex items-center gap-2  text-[#020b31] bg-white px-4 py-2 rounded-full w-fit mb-5">
-                                <div>{steps[activeStep].icon}</div>
-                                <h2 className="text-sm font-semibold">{steps[activeStep].title}</h2>
-                            </div>
+                <div className="relative max-w-5xl mx-auto">
+                    {/* Vertical Line */}
+                    <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:-translate-x-1/2"></div>
 
-                            <p className="text-lg font-semibold text-white mb-3">Deliverable</p>
+                    <div className="space-y-12 md:space-y-24">
+                        {steps.map((step, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className={`relative flex flex-col md:flex-row gap-8 md:gap-0 items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""
+                                    }`}
+                            >
+                                {/* Content Side */}
+                                <div className="w-full md:w-1/2 pl-12 md:pl-0 md:px-12">
+                                    <div className={`bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-shadow duration-300 relative ${index % 2 === 0 ? "text-left" : "text-left md:text-right"
+                                        }`}>
+                                        <div className={`absolute top-6 ${index % 2 === 0 ? "-left-3 md:-right-3" : "-left-3"} w-6 h-6 bg-white border-t border-l border-gray-100 transform rotate-45`}></div>
 
-                            <ul className="space-y-3 mb-6">
-                                {steps[activeStep].deliverables.map((item, i) => (
-                                    <li key={i} className="flex items-start gap-2 text-white text-sm">
-                                        <svg
-                                            className="w-5 h-5 text-white mt-1 flex-shrink-0"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            strokeWidth="3"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    </AnimatePresence>
-                </div>
-            </div>
+                                        <h3 className="text-2xl font-bold text-primary mb-3 flex items-center gap-3 md:inline-flex">
+                                            {step.title}
+                                        </h3>
+                                        <p className="text-gray-600 mb-6 leading-relaxed">
+                                            {step.description}
+                                        </p>
 
-            {/* Mobile View - All Cards Shown */}
-            <div className="flex flex-col gap-6 md:hidden mt-8">
-                {steps.map((step, index) => (
-                    <div
-                        key={index}
-                        className="bg-gray-200 border border-gray-200 rounded-2xl p-6"
-                    >
-                        <div className="flex items-center gap-2 bg-[#020b31] text-white px-4 py-2 rounded-full w-fit mb-5">
-                            <div>{step.icon}</div>
-                            <h2 className="text-sm font-semibold">{step.title}</h2>
-                        </div>
+                                        <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? "justify-start" : "justify-start md:justify-end"}`}>
+                                            {step.deliverables.map((item, i) => (
+                                                <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">
+                                                    <CheckCircle2 className="w-3 h-3" />
+                                                    {item}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <p className="text-base font-semibold text-gray-900 mb-3">Deliverable</p>
+                                {/* Center Icon */}
+                                <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white border-4 border-white shadow-lg z-10">
+                                    {step.icon}
+                                </div>
 
-                        <ul className="space-y-2 mb-6">
-                            {step.deliverables.map((item, i) => (
-                                <li key={i} className="flex items-start gap-2 text-gray-800 text-sm">
-                                    <svg
-                                        className="w-4 h-4 text-[#020b31]mt-1 flex-shrink-0"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="3"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
+                                {/* Empty Side for Layout Balance */}
+                                <div className="hidden md:block w-1/2"></div>
+                            </motion.div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-        </div>
-
+        </section>
     );
 }

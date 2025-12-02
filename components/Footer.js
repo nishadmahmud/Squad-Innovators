@@ -8,12 +8,12 @@ import { MessageCircle, PhoneCall } from "lucide-react";
 const Footer = () => {
     return (
         <footer className="bg-primary text-white pt-20 pb-10">
-            <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto px-4">
                 <div className="grid md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="bg-white p-2 rounded-lg">
-                                <Image src="/logo (2).png" width={32} height={32} alt="logo" className="w-8 h-8"></Image>
+                                <Image src="/logo (2).png" width={32} height={32} alt="logo" className="w-8 h-8" unoptimized></Image>
                             </div>
                             <h3 className="text-2xl font-bold tracking-tight">Squad Innovators</h3>
                         </div>

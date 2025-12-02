@@ -15,7 +15,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:md:w-32 w-28" width={200} height={200} alt="comapnyLogo" src="/satsuna.png"></Image>
+                        <Image className="md:md:w-32 w-28" width={200} height={200} alt="comapnyLogo" src="/satsuna.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -27,7 +27,7 @@ const TrustedBy = () => {
                         Saloon
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
-                        <Image className="md:w-28 w-24" width={200} height={200} alt="comapnyLogo" src="/bonzer.png"></Image>
+                        <Image className="md:w-28 w-24" width={200} height={200} alt="comapnyLogo" src="/bonzer.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-28 w-24" width={200} height={200} alt="comapnyLogo" src="/brothers.png"></Image>
+                        <Image className="md:w-28 w-24" width={200} height={200} alt="comapnyLogo" src="/brothers.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-32 w-28" width={200} height={200} alt="comapnyLogo" src="/bodda.png"></Image>
+                        <Image className="md:w-32 w-28" width={200} height={200} alt="comapnyLogo" src="/bodda.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-36 w-32" width={200} height={200} alt="comapnyLogo" src="/apple_mart.png"></Image>
+                        <Image className="md:w-36 w-32" width={200} height={200} alt="comapnyLogo" src="/apple_mart.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -75,7 +75,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="w-24 mt-2" width={200} height={200} alt="comapnyLogo" src="/dlm.png"></Image>
+                        <Image className="w-24 mt-2" width={200} height={200} alt="comapnyLogo" src="/dlm.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -89,7 +89,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-20 w-16" width={200} height={200} alt="comapnyLogo" src="/apPharma.png"></Image>
+                        <Image className="md:w-20 w-16" width={200} height={200} alt="comapnyLogo" src="/apPharma.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -101,7 +101,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-24 w-20 mt-4" width={200} height={200} alt="comapnyLogo" src="/bhai-bhai.png"></Image>
+                        <Image className="md:w-24 w-20 mt-4" width={200} height={200} alt="comapnyLogo" src="/bhai-bhai.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-28 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-32 w-24" width={200} height={200} alt="comapnyLogo" src="/corporate-care.png"></Image>
+                        <Image className="md:w-32 w-24" width={200} height={200} alt="comapnyLogo" src="/corporate-care.png" unoptimized></Image>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@ const TrustedBy = () => {
                     </span>
                     <div className="border border-gray-100 shadow-sm md:w-56 w-48 h-24 flex flex-col justify-center items-center rounded-2xl bg-white hover:shadow-md transition-shadow duration-300">
 
-                        <Image className="md:w-20 w-16 mt-2" width={200} height={200} alt="comapnyLogo" src="/dontaion.png"></Image>
+                        <Image className="md:w-20 w-16 mt-2" width={200} height={200} alt="comapnyLogo" src="/dontaion.png" unoptimized></Image>
                     </div>
                 </div>
 

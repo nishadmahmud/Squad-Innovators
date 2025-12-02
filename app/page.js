@@ -13,6 +13,8 @@ import TestimonialSection from "../components/TestimonialSection";
 import IndustryExpertises from "../components/IndustryExpertises";
 import StrategySection from "../components/StrategySection";
 import BlogList from "../components/BlogList";
+import CTASection from "../components/CTASection";
+import FAQSection from "../components/FAQSection";
 
 export default function Home() {
   return (
@@ -31,7 +33,9 @@ export default function Home() {
         <TestimonialSection />
         <IndustryExpertises />
         <StrategySection />
+        <FAQSection />
         <BlogList />
+        <CTASection />
         {/* <Milestones></Milestones>
         <TrustedMarquee></TrustedMarquee>
         <OurServices></OurServices>
