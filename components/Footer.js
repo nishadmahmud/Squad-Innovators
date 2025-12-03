@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -21,16 +22,14 @@ const Footer = () => {
                             Providing innovative software solutions for businesses of all sizes since 2020. We build the future of digital.
                         </p>
                         <div className="flex gap-4">
-                            <a target="_blank" href="https://www.linkedin.com/company/squad-innovators/posts/?feedView=all" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
+                            <a target="_blank" href="https://www.linkedin.com/company/squad-innovators" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
                                 <FaLinkedinIn className="h-5 w-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
-                                <FaTwitter className="h-5 w-5" />
-                            </a>
-                            <a target="_blank" href="https://web.facebook.com/profile.php?id=61551666554830" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
+
+                            <a target="_blank" href="https://www.facebook.com/p/Squad-Innovators-61551666554830/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
                                 <FaFacebookF className="h-5 w-5" />
                             </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
+                            <a target="_blank" href="https://www.instagram.com/squadinnovators/" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary transition-all duration-300">
                                 <FaInstagram className="h-5 w-5" />
                             </a>
                         </div>
@@ -39,49 +38,59 @@ const Footer = () => {
                     <div>
                         <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Quick Links</h4>
                         <ul className="space-y-3">
-                            <li><a href="#home" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Home</a></li>
-                            <li><a href="/about-us" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">About Us</a></li>
-                            <li><a href="#service" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Services</a></li>
-                            <li><a href="#projects" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Projects</a></li>
-                            <li><Link href="mailto: squadinnovators@gmail.com" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Contact</Link></li>
+                            <li><a href="/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Home</a></li>
+                            <li><a href="/about" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">About Us</a></li>
+                            <li><a href="/services" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Services</a></li>
+                            <li><a href="/projects" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Projects</a></li>
+                            <li><a href="/clients" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Clients</a></li>
+                            <li><Link href="/contact" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Contact</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Services</h4>
                         <ul className="space-y-3">
-                            <li><a href="#service" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Custom Software</a></li>
-                            <li><a href="#service" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Mobile App Dev</a></li>
-                            <li><a href="#service" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Cloud Solutions</a></li>
-                            <li><a href="#service" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">IT Consulting</a></li>
-                            <li><a href="#service" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Support & Maintenance</a></li>
+                            <li><a href="/services/ui-ux-design" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">UI/UX Design</a></li>
+                            <li><a href="/services/mobile-app-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Mobile App Development</a></li>
+                            <li><a href="/services/software-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Software Development</a></li>
+                            <li><a href="/services/ecommerce-solutions" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">eCommerce Solutions</a></li>
+                            <li><a href="/services/saas-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">SaaS Development</a></li>
+                            <li><a href="/services/devops-services" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">DevOps Services</a></li>
+                            <li><a href="/services/pos-solutions" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">POS Solutions</a></li>
                         </ul>
                     </div>
 
+                    {/* Contact Info */}
                     <div>
-                        <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Newsletter</h4>
-                        <p className="text-gray-300 mb-6">Subscribe to our newsletter for the latest updates and offers.</p>
-                        <form className="space-y-3">
-                            <input
-                                type="email"
-                                placeholder="Your email address"
-                                className="w-full px-4 py-3 bg-white/5 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-secondary focus:border-transparent outline-none transition-all"
-                            />
-                            <button
-                                type="submit"
-                                className="w-full bg-secondary hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/30"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
+                        <h3 className="text-xl font-bold mb-6">Contact Us</h3>
+                        <ul className="space-y-4">
+                            <li className="flex items-start gap-3 text-gray-300">
+                                <FaMapMarkerAlt className="mt-1 text-secondary" />
+                                <span>20/22, Block-c, Aftabnagor,<br />Badda, Bangladesh</span>
+                            </li>
+                            <li className="flex items-center gap-3 text-gray-300">
+                                <FaEnvelope className="text-secondary" />
+                                <a href="mailto:squadinnovators@gmail.com" className="hover:text-white transition-colors">squadinnovators@gmail.com</a>
+                            </li>
+                            <li className="flex items-center gap-3 text-gray-300">
+                                <FaWhatsapp className="text-secondary" />
+                                <a href="https://wa.me/+8801886182084" className="hover:text-white transition-colors">+880 1886-182084</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-                    <p>&copy; {new Date().getFullYear()} Squad Innovators. All rights reserved.</p>
-                    <div className="flex gap-6 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                <div className="border-t border-white/10 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-400 text-sm">
+                        &copy; {new Date().getFullYear()} Squad Innovators. All rights reserved.
+                    </p>
+                    <div className="flex gap-6 text-sm">
+                        <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+                            Terms & Conditions
+                        </Link>
+                        <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+                            Privacy Policy
+                        </Link>
                     </div>
                 </div>
             </div>

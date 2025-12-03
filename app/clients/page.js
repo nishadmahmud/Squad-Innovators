@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ClientsPage() {
     return (
-        <div className="bg-white min-h-screen pt-24 pb-12">
+        <div className="bg-white min-h-screen pt-30 pb-12">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-16">
@@ -18,7 +18,7 @@ export default function ClientsPage() {
                     <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
                         Trusted by <span className="text-gradient">500+ Clients</span>
                     </h1>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                    <p className="text-gray-600 max-w-4xl mx-auto text-lg">
                         We are proud to have partnered with these amazing companies to build digital solutions that drive growth.
                     </p>
                 </div>

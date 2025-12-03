@@ -34,7 +34,7 @@ export default function BlogPageContent() {
     }, []);
 
     return (
-        <div className="bg-white min-h-screen pt-24 pb-12">
+        <div className="bg-white min-h-screen pt-30 pb-12">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-4">

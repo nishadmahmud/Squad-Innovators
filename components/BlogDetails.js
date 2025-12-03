@@ -61,7 +61,7 @@ export default function BlogDetails({ id }) {
     }
 
     return (
-        <div className="bg-white min-h-screen pt-24 pb-12">
+        <div className="bg-white min-h-screen pt-30 pb-12">
             {/* Hero Image */}
             <div className="relative h-[400px] md:h-[500px] w-full">
                 <Image

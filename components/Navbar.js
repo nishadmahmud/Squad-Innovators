@@ -21,7 +21,7 @@ const Navbar = () => {
         { label: "Blog", href: "/blog" },
         {
             label: "Company", href: "#", children: [
-                { label: "About Us", href: "/about-us" },
+                { label: "About Us", href: "/about" },
                 { label: "Contact Us", href: "/contact" }
             ]
         },
@@ -36,7 +36,7 @@ const Navbar = () => {
 
     return (
         <div className='fixed top-6 left-0 right-0 z-50 flex justify-center px-4'>
-            <nav className="w-full max-w-6xl bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300">
+            <nav className="w-full max-w-[1400px] bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300">
 
                 {/* Logo */}
                 <Link href='/' className="flex items-center gap-2">
@@ -117,7 +117,7 @@ const Navbar = () => {
 
                 {/* Hamburger Icon */}
                 <div className='flex items-center gap-4 lg:hidden'>
-                    <Link className='flex items-center gap-1 bg-primary px-4 py-2 rounded-full text-white shadow-md' target='_blank' href='https://wa.me/+8801677182084'>
+                    <Link className='flex items-center gap-1 bg-primary px-4 py-2 rounded-full text-white shadow-md' target='_blank' href='https://wa.me/+8801886182084'>
                         <FaWhatsapp className="text-lg" />
                         <span className='text-xs font-bold'>Let&apos;s Talk</span>
                     </Link>
