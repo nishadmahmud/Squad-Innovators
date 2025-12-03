@@ -4,138 +4,167 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Layers } from "lucide-react";
+import { clientsData } from "@/lib/clientsData";
 
-const products = [
-    {
-        id: 1,
-        title: "Outlet Expense",
-        category: "Business Management",
-        description: "Precise tracking, automated workflows, and real-time insights to streamline your business operations.",
-        image: "/outlet-2.png",
-        color: "from-blue-500 to-cyan-400",
-        link: 'https://outletexpense.com/'
-    },
-    {
-        id: 2,
-        title: "Day Planner",
-        category: "Productivity",
-        description: "Unleash Your Potential with the Ultimate Day Planner App. Organize Your Life, Maximize Your Productivity.",
-        image: "/day-planner-p.png",
-        color: "from-purple-500 to-pink-400",
-        link: 'https://www.dayplannerapp.com/'
-    },
-    {
-        id: 3,
-        title: "Squad HRM",
-        category: "Enterprise",
-        description: "Seamlessly manage your workforce with Squad HRM, an all-in-one Human Resource Management System.",
-        image: "/hrm.png",
-        color: "from-teal-500 to-emerald-400",
-        link: '#'
-    },
-];
+// Select top projects to feature
+const featuredProjects = clientsData.slice(0, 5);
 
 export default function OurProjects() {
-    const [activeTab, setActiveTab] = useState(0);
+    const [activeindex, setActiveIndex] = useState(0);
+    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-    // Auto-rotate tabs
+    // Auto-rotate
     useEffect(() => {
+        if (!isAutoPlaying) return;
         const interval = setInterval(() => {
-            setActiveTab((prev) => (prev + 1) % products.length);
+            setActiveIndex((prev) => (prev + 1) % featuredProjects.length);
         }, 5000);
         return () => clearInterval(interval);
-    }, []);
+    }, [isAutoPlaying]);
+
+    const activeProject = featuredProjects[activeindex];
 
     return (
         <section id="projects" className="py-24 bg-white relative overflow-hidden">
+            {/* Background Decoration */}
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50 -skew-x-12 transform origin-top-right z-0"></div>
+
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <span className="text-secondary font-bold tracking-wider uppercase text-sm">Our Work</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-primary mt-2 mb-6">
-                        Featured <span className="text-gradient">Products</span>
-                    </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-                        Smart, scalable, and future-ready solutions built to solve real-world problems.
-                    </p>
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div className="max-w-2xl">
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-secondary font-bold tracking-wider uppercase text-sm"
+                        >
+                            Our Work
+                        </motion.span>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-5xl font-bold text-primary mt-2"
+                        >
+                            Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Projects</span>
+                        </motion.h2>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <Link href="/projects" className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors">
+                            View All Projects
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </motion.div>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-12 items-center">
-                    {/* Left Column: Tabs */}
-                    <div className="lg:col-span-5 flex flex-col gap-4">
-                        {products.map((product, index) => (
+                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 h-[600px] lg:h-[550px]">
+                    {/* Project List (Left) */}
+                    <div className="lg:col-span-4 flex flex-col gap-3 overflow-y-auto pr-2 custom-scrollbar h-full">
+                        {featuredProjects.map((project, index) => (
                             <button
-                                key={product.id}
-                                onClick={() => setActiveTab(index)}
-                                className={`text-left p-6 rounded-2xl transition-all duration-300 border-2 ${activeTab === index
-                                    ? "bg-white border-primary/10 shadow-xl scale-105"
-                                    : "bg-gray-50 border-transparent hover:bg-gray-100"
+                                key={project.id}
+                                onClick={() => {
+                                    setActiveIndex(index);
+                                    setIsAutoPlaying(false);
+                                }}
+                                className={`text-left p-5 rounded-xl transition-all duration-300 border border-transparent group relative overflow-hidden ${activeindex === index
+                                        ? "bg-primary text-white shadow-lg scale-[1.02]"
+                                        : "bg-gray-50 hover:bg-white hover:shadow-md hover:border-gray-100"
                                     }`}
                             >
-                                <h3 className={`text-xl font-bold mb-2 ${activeTab === index ? "text-primary" : "text-gray-500"}`}>
-                                    {product.title}
-                                </h3>
-                                <p className={`text-sm line-clamp-2 ${activeTab === index ? "text-gray-600" : "text-gray-400"}`}>
-                                    {product.description}
-                                </p>
+                                <div className="relative z-10 flex items-center gap-4">
+                                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${activeindex === index ? "bg-white/20 text-white" : "bg-white text-gray-400 group-hover:text-primary"
+                                        }`}>
+                                        <Layers size={20} />
+                                    </div>
+                                    <div>
+                                        <h3 className={`font-bold text-lg leading-tight mb-1 ${activeindex === index ? "text-white" : "text-gray-800"
+                                            }`}>
+                                            {project.title}
+                                        </h3>
+                                        <p className={`text-xs line-clamp-1 ${activeindex === index ? "text-white/70" : "text-gray-500"
+                                            }`}>
+                                            {project.technologies.join(", ")}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Progress Bar for Active Item */}
+                                {activeindex === index && isAutoPlaying && (
+                                    <motion.div
+                                        initial={{ width: "0%" }}
+                                        animate={{ width: "100%" }}
+                                        transition={{ duration: 5, ease: "linear" }}
+                                        className="absolute bottom-0 left-0 h-1 bg-secondary"
+                                    />
+                                )}
                             </button>
                         ))}
                     </div>
 
-                    {/* Right Column: Preview */}
-                    <div className="lg:col-span-7 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
+                    {/* Project Preview (Right) */}
+                    <div className="lg:col-span-8 relative h-full">
                         <AnimatePresence mode="wait">
                             <motion.div
-                                key={activeTab}
-                                initial={{ opacity: 0, x: 20 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -20 }}
-                                transition={{ duration: 0.5 }}
-                                className="absolute inset-0"
+                                key={activeProject.id}
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 1.05 }}
+                                transition={{ duration: 0.4 }}
+                                className="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl group"
                             >
-                                {/* Background Gradient */}
-                                <div className={`absolute inset-0 bg-gradient-to-br ${products[activeTab].color} opacity-20`}></div>
+                                {/* Background Image with Overlay */}
+                                <div className="absolute inset-0 bg-gray-900">
+                                    <Image
+                                        src={activeProject.image}
+                                        alt={activeProject.title}
+                                        fill
+                                        className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                                        unoptimized
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+                                </div>
 
-                                <div className="relative z-10 h-full grid grid-cols-1 md:grid-cols-2 gap-8 p-8 md:p-12 items-center">
-                                    {/* Text Content */}
-                                    <div className="flex flex-col justify-center">
-                                        <span className="inline-block py-1 px-3 rounded-full bg-white/10 text-white text-xs font-bold tracking-wider uppercase mb-6 w-fit backdrop-blur-md">
-                                            {products[activeTab].category}
-                                        </span>
-
-                                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-                                            {products[activeTab].title}
-                                        </h3>
-
-                                        <p className="text-gray-300 text-base md:text-lg mb-8 leading-relaxed">
-                                            {products[activeTab].description}
-                                        </p>
-
-                                        <Link
-                                            href={products[activeTab].link}
-                                            target="_blank"
-                                            className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors w-fit group text-sm md:text-base"
-                                        >
-                                            View Project
-                                            <ExternalLink className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
-                                        </Link>
-                                    </div>
-
-                                    {/* Image Container */}
+                                {/* Content */}
+                                <div className="absolute bottom-0 left-0 w-full p-8 md:p-12 z-20">
                                     <motion.div
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
-                                        transition={{ delay: 0.2, duration: 0.5 }}
-                                        className="relative h-full w-full flex items-center justify-center"
+                                        transition={{ delay: 0.2 }}
                                     >
-                                        <div className="relative w-full aspect-video md:aspect-square rounded-xl overflow-hidden shadow-2xl transform md:rotate-3 hover:rotate-0 transition-transform duration-500">
-                                            <Image
-                                                src={products[activeTab].image}
-                                                alt={products[activeTab].title}
-                                                fill
-                                                className="object-cover"
-                                                unoptimized
-                                            />
+                                        <div className="flex flex-wrap gap-2 mb-4">
+                                            {activeProject.technologies.map((tech, i) => (
+                                                <span key={i} className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-medium text-white">
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        <h3 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                                            {activeProject.title}
+                                        </h3>
+
+                                        <p className="text-gray-300 text-lg max-w-2xl mb-8 line-clamp-3">
+                                            {activeProject.description}
+                                        </p>
+
+                                        <div className="flex gap-4">
+                                            <Link
+                                                href={activeProject.liveLink}
+                                                target="_blank"
+                                                className="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                                            >
+                                                View Live Site
+                                                <ExternalLink size={18} />
+                                            </Link>
                                         </div>
                                     </motion.div>
                                 </div>
