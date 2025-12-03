@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ExternalLink, Github, Layers } from "lucide-react";
+import { ArrowRight, ExternalLink, Layers } from "lucide-react";
 import { clientsData } from "@/lib/clientsData";
 
 // Select top projects to feature
@@ -31,7 +31,7 @@ export default function OurProjects() {
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50 -skew-x-12 transform origin-top-right z-0"></div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 text-center md:text-left">
                     <div className="max-w-2xl">
                         <motion.span
                             initial={{ opacity: 0, y: 10 }}
@@ -65,7 +65,63 @@ export default function OurProjects() {
                     </motion.div>
                 </div>
 
-                <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 h-[600px] lg:h-[550px]">
+                {/* Mobile View - Horizontal Scroll */}
+                <div className="lg:hidden overflow-x-auto pb-4 -mx-4 px-4">
+                    <div className="flex gap-4 w-max">
+                        {featuredProjects.map((project) => (
+                            <motion.div
+                                key={project.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="relative rounded-2xl overflow-hidden shadow-xl group w-[85vw] flex-shrink-0"
+                            >
+                                {/* Background Image */}
+                                <div className="relative h-64 bg-gray-900">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover opacity-70 group-hover:scale-105 transition-transform duration-700"
+                                        unoptimized
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="absolute bottom-0 left-0 w-full p-6 z-20">
+                                    <div className="flex flex-wrap gap-2 mb-3">
+                                        {project.technologies.slice(0, 3).map((tech, i) => (
+                                            <span key={i} className="px-2 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-medium text-white">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <h3 className="text-2xl font-bold text-white mb-2">
+                                        {project.title}
+                                    </h3>
+
+                                    <p className="text-gray-300 text-sm mb-4 line-clamp-2">
+                                        {project.description}
+                                    </p>
+
+                                    <Link
+                                        href={project.liveLink}
+                                        target="_blank"
+                                        className="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white px-4 py-2 rounded-lg font-bold text-sm transition-all"
+                                    >
+                                        View Live Site
+                                        <ExternalLink size={16} />
+                                    </Link>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Desktop View - Original Layout */}
+                <div className="hidden lg:grid lg:grid-cols-12 gap-8 lg:gap-12 h-[550px]">
                     {/* Project List (Left) */}
                     <div className="lg:col-span-4 flex flex-col gap-3 overflow-y-auto pr-2 custom-scrollbar h-full">
                         {featuredProjects.map((project, index) => (
@@ -76,8 +132,8 @@ export default function OurProjects() {
                                     setIsAutoPlaying(false);
                                 }}
                                 className={`text-left p-5 rounded-xl transition-all duration-300 border border-transparent group relative overflow-hidden ${activeindex === index
-                                        ? "bg-primary text-white shadow-lg scale-[1.02]"
-                                        : "bg-gray-50 hover:bg-white hover:shadow-md hover:border-gray-100"
+                                    ? "bg-primary text-white shadow-lg scale-[1.02]"
+                                    : "bg-gray-50 hover:bg-white hover:shadow-md hover:border-gray-100"
                                     }`}
                             >
                                 <div className="relative z-10 flex items-center gap-4">

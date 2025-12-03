@@ -7,7 +7,7 @@ import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 
 const CTASection = () => {
     return (
-        <section className="py-24 mb-16 rounded-3xl relative overflow-hidden bg-primary text-white">
+        <section className="py-24 mb-16 mx-2 md:mx-4 rounded-3xl relative overflow-hidden bg-primary text-white">
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Gradient Blobs */}

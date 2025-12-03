@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const SocialSidebar = () => {
     const socialLinks = [
@@ -20,6 +21,12 @@ const SocialSidebar = () => {
             icon: <Instagram className="w-5 h-5 z-10" />,
             href: "https://www.instagram.com/squadinnovators/",
             color: "bg-[#e4405f]"
+        },
+        {
+            name: "WhatsApp",
+            icon: <FaWhatsapp className="w-5 h-5 z-10" />,
+            href: "https://wa.me/+8801886182084",
+            color: "bg-[#25D366]"
         }
     ];
 

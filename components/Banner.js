@@ -49,8 +49,8 @@ const Banner = () => {
                             </Link>
                         </div>
 
-                        <div className="flex items-center gap-6 border-t border-gray-100 pt-6 w-full">
-                            <div className="flex items-center gap-3">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-gray-100 pt-6 w-full">
+                            <div className="flex items-center gap-3 justify-start">
                                 <div className="flex -space-x-3">
                                     {[
                                         "/fizan.png",
@@ -76,9 +76,9 @@ const Banner = () => {
                                 </div>
                             </div>
 
-                            <div className="h-8 w-px bg-gray-200"></div>
+                            <div className="h-8 w-px bg-gray-200 hidden md:block mx-auto"></div>
 
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 justify-start">
                                 <Image className="w-20 grayscale opacity-80" width={80} height={50} unoptimized src="/award-asia.png" alt="Award Asia" />
                                 <div className="text-xs font-semibold text-gray-500 leading-tight">
                                     Asia Smart App <br /> Awards Winner
@@ -88,7 +88,7 @@ const Banner = () => {
                     </div>
 
                     {/* Right Column: Image - Clean, no frame */}
-                    <div className="relative flex justify-center lg:justify-end">
+                    <div className="relative hidden lg:flex justify-center lg:justify-end">
                         <div className="relative w-full max-w-[400px]">
                             <Image
                                 unoptimized

@@ -89,26 +89,28 @@ const TechStackTabs = () => {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-16">
-                    {Object.keys(techStack).map((tab) => (
-                        <button
-                            key={tab}
-                            onClick={() => setActiveTab(tab)}
-                            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base relative overflow-hidden group ${activeTab === tab
-                                ? "text-white shadow-lg scale-105"
-                                : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
-                                }`}
-                        >
-                            {activeTab === tab && (
-                                <motion.div
-                                    layoutId="activeTab"
-                                    className="absolute inset-0 bg-primary"
-                                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                />
-                            )}
-                            <span className="relative z-10">{tab}</span>
-                        </button>
-                    ))}
+                <div className="flex justify-center mb-16 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+                    <div className="flex gap-3 w-max md:w-auto">
+                        {Object.keys(techStack).map((tab) => (
+                            <button
+                                key={tab}
+                                onClick={() => setActiveTab(tab)}
+                                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base relative overflow-hidden group whitespace-nowrap ${activeTab === tab
+                                    ? "text-white shadow-lg scale-105"
+                                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
+                                    }`}
+                            >
+                                {activeTab === tab && (
+                                    <motion.div
+                                        layoutId="activeTab"
+                                        className="absolute inset-0 bg-primary"
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                    />
+                                )}
+                                <span className="relative z-10">{tab}</span>
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Tech Icons Grid */}

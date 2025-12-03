@@ -43,6 +43,11 @@
   scroll-behavior: smooth;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .playfire {
   font-family: "Playfair Display", serif;
 }

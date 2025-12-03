@@ -35,7 +35,10 @@ const Navbar = () => {
     };
 
     return (
-        <div className='fixed top-6 left-0 right-0 z-50 flex justify-center px-4'>
+        <div
+            className='fixed left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300'
+            style={{ top: 'calc(1.5rem + var(--top-banner-height, 0px))' }}
+        >
             <nav className="w-full max-w-[1400px] bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300">
 
                 {/* Logo */}
@@ -144,7 +147,7 @@ const Navbar = () => {
 
                 {/* Mobile Sidebar */}
                 <div
-                    className={`fixed top-0 right-0 h-screen w-72 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${openSidebar ? 'translate-x-0' : 'translate-x-full'} lg:hidden`}
+                    className={`fixed top-0 ${openSidebar ? '-right-10' : '-right-80'} h-screen w-72 bg-white shadow-2xl transition-all duration-300 ease-in-out z-50 lg:hidden`}
                 >
                     <div className="p-6 flex flex-col h-full overflow-y-auto">
                         <div className="flex justify-between items-center mb-8">

@@ -25,7 +25,7 @@ export default function WhiteLabelService() {
     ];
 
     return (
-        <section className="py-24 rounded-3xl bg-primary relative overflow-hidden text-white">
+        <section className="py-24 mx-2 md:mx-4 rounded-3xl bg-primary relative overflow-hidden text-white">
             {/* Background Elements */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 skew-x-12 transform origin-top-right"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]"></div>

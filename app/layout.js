@@ -23,14 +23,19 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialSidebar from "../components/SocialSidebar";
 
+import TopBanner from "../components/TopBanner";
+import OfferPopup from "../components/OfferPopup";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white overflow-x-hidden`}
       >
+        <OfferPopup />
+        <TopBanner />
         <SocialSidebar />
-        <div className="max-w-[1400px] mx-auto w-full relative bg-white min-h-screen flex flex-col">
+        <div className="w-full lg:max-w-[1400px] mx-auto relative bg-white min-h-screen flex flex-col">
           <Navbar />
           {children}
         </div>

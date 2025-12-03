@@ -48,7 +48,7 @@ const Milestones = () => {
     ];
 
     return (
-        <section ref={ref} className="w-full rounded-3xl relative py-20 bg-primary overflow-hidden">
+        <section ref={ref} className="mx-2 md:mx-4 rounded-3xl relative py-12 md:py-20 bg-primary overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]"></div>
