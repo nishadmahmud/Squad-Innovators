@@ -1,70 +1,101 @@
+"use client";
+
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { clientsData } from '@/lib/clientsData';
-import { ExternalLink, ArrowRight } from 'lucide-react';
-
-export const metadata = {
-    title: "Our Projects",
-    description: "Explore our portfolio of successful projects and digital solutions.",
-};
+import { ExternalLink, ArrowRight, Layers } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function ProjectsPage() {
+    const fadeInUp = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
     return (
-        <div className="bg-white min-h-screen pt-30 pb-12">
-            <div className="container mx-auto px-4">
+        <div className="bg-white min-h-screen pt-32 pb-20 overflow-hidden">
+            {/* Background Decorations */}
+            <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-50/50 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+            </div>
+
+            <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-4">
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={staggerContainer}
+                    className="text-center mb-20"
+                >
+                    <motion.span variants={fadeInUp} className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-4">
                         Our Work
-                    </span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-                        Featured <span className="text-gradient">Projects</span>
-                    </h1>
-                    <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+                    </motion.span>
+                    <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-primary mb-6">
+                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Projects</span>
+                    </motion.h1>
+                    <motion.p variants={fadeInUp} className="text-gray-600 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed">
                         Discover how we've helped businesses transform their digital presence with custom solutions.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
                 {/* Projects Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={staggerContainer}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
                     {clientsData.map((project) => (
-                        <div
+                        <motion.div
                             key={project.id}
-                            className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+                            variants={fadeInUp}
+                            whileHover={{ y: -10 }}
+                            className="group bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col h-full"
                         >
                             {/* Project Image */}
-                            <div className="relative h-64 w-full overflow-hidden bg-gray-50">
+                            <div className="relative h-64 w-full overflow-hidden bg-gray-900">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                    className="object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                                     unoptimized
                                 />
-                                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <Link
-                                        href={project.liveLink}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="bg-white text-primary px-6 py-3 rounded-full font-bold flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-blue-50"
-                                    >
-                                        View Live
-                                        <ExternalLink size={16} />
-                                    </Link>
+                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+
+                                {/* Overlay Content */}
+                                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                    {project.technologies && project.technologies.slice(0, 3).map((tech, index) => (
+                                        <span key={index} className="text-[10px] font-bold px-2 py-1 bg-white/20 backdrop-blur-md text-white rounded-full border border-white/20">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <div className="absolute top-4 right-4 bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
+                                    <ExternalLink size={20} />
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-6 flex flex-col flex-grow">
-                                {/* <div className="flex flex-wrap gap-2 mb-4">
-                                    {project.technologies.slice(0, 3).map((tech, index) => (
-                                        <span key={index} className="text-xs font-medium px-2 py-1 bg-blue-50 text-primary rounded-md">
-                                            {tech}
-                                        </span>
-                                    ))}
-                                </div> */}
+                            <div className="p-8 flex flex-col flex-grow relative">
+                                <div className="absolute top-0 right-8 w-12 h-12 bg-primary text-white rounded-2xl flex items-center justify-center -translate-y-1/2 shadow-lg group-hover:bg-secondary transition-colors duration-300">
+                                    <Layers size={24} />
+                                </div>
 
-                                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors">
+                                <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-secondary transition-colors mt-2">
                                     {project.title}
                                 </h3>
 
@@ -76,15 +107,15 @@ export default function ProjectsPage() {
                                     href={project.liveLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary transition-colors mt-auto group/link"
+                                    className="inline-flex items-center gap-2 text-sm font-bold text-primary group-hover:text-secondary transition-colors mt-auto uppercase tracking-wider"
                                 >
-                                    View Project Details
-                                    <ArrowRight size={16} className="transform group-hover/link:translate-x-1 transition-transform" />
+                                    View Project
+                                    <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </div>
     );
