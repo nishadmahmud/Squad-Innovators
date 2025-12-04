@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Marquee from "react-fast-marquee";
 
 const techStack = {
     "Backend": [
@@ -113,41 +114,47 @@ const TechStackTabs = () => {
                     </div>
                 </div>
 
-                {/* Tech Icons Grid */}
-                <div className="min-h-[300px]">
+                {/* Tech Icons Marquee */}
+                <div className="min-h-[300px] relative">
+                    {/* Gradient Masks for Smooth Fade */}
+                    <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
+
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeTab}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3 }}
-                            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 justify-items-center"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.5 }}
                         >
-                            {techStack[activeTab]?.map((tech, index) => (
-                                <motion.div
-                                    key={tech.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: index * 0.05 }}
-                                    className="flex flex-col items-center group w-full"
-                                >
-                                    <div className="w-24 h-24 md:w-28 md:h-28 bg-white rounded-3xl flex items-center justify-center shadow-sm hover:shadow-2xl transition-all duration-300 p-6 border border-gray-100 group-hover:-translate-y-2 relative overflow-hidden">
-                                        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                        <Image
-                                            unoptimized
-                                            width={80}
-                                            height={80}
-                                            src={tech.icon}
-                                            alt={tech.name}
-                                            className="w-full h-full object-contain relative z-10 filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                                        />
-                                    </div>
-                                    <p className="text-gray-700 text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                                        {tech.name}
-                                    </p>
-                                </motion.div>
-                            ))}
+                            <Marquee gradient={false} speed={40} pauseOnHover={true} className="py-10">
+                                <div className="flex gap-8 px-4">
+                                    {[...techStack[activeTab], ...techStack[activeTab], ...techStack[activeTab], ...techStack[activeTab]].map((tech, index) => (
+                                        <div
+                                            key={`${tech.name}-${index}`}
+                                            className="group relative w-40 h-40 bg-white rounded-[2rem] flex flex-col items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 mx-4 cursor-pointer hover:-translate-y-2"
+                                        >
+                                            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem]"></div>
+
+                                            <div className="relative z-10 w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
+                                                <Image
+                                                    unoptimized
+                                                    width={64}
+                                                    height={64}
+                                                    src={tech.icon}
+                                                    alt={tech.name}
+                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                                                />
+                                            </div>
+
+                                            <p className="relative z-10 text-gray-600 font-bold text-sm group-hover:text-primary transition-colors duration-300">
+                                                {tech.name}
+                                            </p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Marquee>
                         </motion.div>
                     </AnimatePresence>
                 </div>
