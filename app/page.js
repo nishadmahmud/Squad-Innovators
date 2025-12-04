@@ -21,10 +21,10 @@ export default function Home() {
     <main>
 
       <div className="h-auto">
-        <Banner></Banner>
-        <Milestones />
+        <Banner />
         <TrustedMarquee />
         <OurServices />
+        <Milestones />
         <OurProjects />
         <TrustedBy />
         <StepCards />

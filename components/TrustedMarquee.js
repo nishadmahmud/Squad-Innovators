@@ -21,20 +21,20 @@ const TrustedMarquee = () => {
     ];
 
     return (
-        <div className='py-12 bg-white border-b border-gray-100 relative overflow-hidden'>
-            <div className="container mx-auto px-4 mb-8 text-center">
-                <p className="text-gray-400 font-bold uppercase tracking-[0.2em] text-xs">Trusted by Industry Leaders</p>
+        <div className='py-16 bg-slate-50 border-b border-gray-200 relative overflow-hidden'>
+            <div className="container mx-auto px-4 mb-10 text-center">
+                <p className="text-gray-500 font-bold uppercase tracking-[0.3em] text-xs">Trusted by Industry Leaders</p>
             </div>
 
             <div className="relative">
                 {/* Gradient Masks */}
-                <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-                <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 left-0 w-40 h-full bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+                <div className="absolute top-0 right-0 w-40 h-full bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
 
                 <Marquee gradient={false} speed={40} pauseOnHover={true}>
-                    <div className="flex items-center gap-16 px-8">
+                    <div className="flex items-center gap-20 px-10">
                         {logos.map((logo, index) => (
-                            <div key={index} className="relative w-32 h-20 flex items-center justify-center group">
+                            <div key={index} className="relative w-36 h-24 flex items-center justify-center group cursor-pointer">
                                 <Image
                                     className='object-contain w-full h-full opacity-40 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110'
                                     width={150}

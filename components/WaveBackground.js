@@ -135,7 +135,7 @@ const DotGrid = () => {
 
 const WaveBackground = () => {
     return (
-        <div className="absolute top-0 left-0 w-full h-full -z-10 bg-white">
+        <div className="absolute top-0 left-0 w-full h-full -z-10 bg-transparent">
             <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
                 <ambientLight intensity={0.5} />
                 <DotGrid />
