@@ -13,7 +13,7 @@
     "@react-three/fiber": "^9.4.2",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.555.0",
-    "next": "16.0.6",
+    "next": "16.0.7",
     "react": "19.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "19.2.0",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "16.0.6",
+    "eslint-config-next": "16.0.7",
     "tailwindcss": "^4"
   }
 }
