@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const testimonials = [
     {
@@ -45,24 +46,56 @@ const testimonials = [
 
 const TestimonialSection = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
-            {/* Background Decoration */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50 skew-x-12 transform origin-top-right z-0"></div>
+        <section className="py-20 bg-gradient-to-br from-[#030f45] to-[#1e3a8a] relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+            </div>
+
+            {/* Grid Pattern */}
+            <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <span className="text-secondary font-bold tracking-wider uppercase text-sm">Testimonials</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-primary mt-2 mb-6">
-                        What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Clients Say</span>
-                    </h2>
-                    <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                {/* Header */}
+                <div className="text-center mb-16 max-w-3xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-wider uppercase mb-6 shadow-lg"
+                    >
+                        TESTIMONIALS
+                    </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-white mb-4"
+                    >
+                        What Our{' '}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#60a5fa]">
+                            Clients Say
+                        </span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-blue-100 text-lg md:text-xl leading-relaxed font-light"
+                    >
                         Don't just take our word for it. Here's what our partners have to say about their experience working with us.
-                    </p>
+                    </motion.p>
                 </div>
 
+                {/* Testimonials Carousel */}
                 <Swiper
                     slidesPerView={1}
-                    spaceBetween={30}
+                    spaceBetween={24}
                     loop={true}
                     autoplay={{
                         delay: 5000,
@@ -82,38 +115,45 @@ const TestimonialSection = () => {
                 >
                     {testimonials.map((testimonial, index) => (
                         <SwiperSlide key={index} className="h-full pt-4 pb-8">
-                            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.12)] transition-all duration-500 h-full flex flex-col relative group hover:-translate-y-2">
-                                <div className="absolute -top-4 right-8 bg-secondary text-white p-3 rounded-xl shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                                    <Quote size={24} fill="currentColor" />
-                                </div>
+                            <div className="relative group h-full">
+                                {/* Glow Effect */}
+                                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#2563eb] to-[#60a5fa] rounded-3xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300"></div>
 
-                                <div className="mb-6">
-                                    <div className="flex gap-1 mb-4">
+                                {/* Card */}
+                                <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 h-full flex flex-col">
+                                    {/* Quote Icon */}
+                                    <div className="absolute -top-4 right-8 bg-gradient-to-r from-[#2563eb] to-[#60a5fa] text-white p-3 rounded-xl shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                                        <Quote size={24} fill="currentColor" />
+                                    </div>
+
+                                    {/* Stars */}
+                                    <div className="flex gap-1 mb-6">
                                         {[...Array(5)].map((_, i) => (
-                                            <svg key={i} className="w-5 h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
-                                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                            </svg>
+                                            <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                                         ))}
                                     </div>
-                                    <p className="text-gray-600 leading-relaxed italic text-lg">
+
+                                    {/* Quote Text */}
+                                    <p className="text-white text-lg leading-relaxed mb-8 flex-1 font-light">
                                         "{testimonial.quote}"
                                     </p>
-                                </div>
 
-                                <div className="mt-auto flex items-center gap-4 pt-6 border-t border-gray-50">
-                                    <div className="relative w-14 h-14 flex-shrink-0">
-                                        <Image
-                                            unoptimized
-                                            fill
-                                            src={testimonial.image}
-                                            alt={testimonial.name}
-                                            className="rounded-full object-cover border-2 border-white shadow-md"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-primary text-lg leading-tight">{testimonial.name}</h4>
-                                        <p className="text-sm text-gray-500">{testimonial.title}</p>
-                                        <p className="text-xs text-secondary font-semibold uppercase tracking-wide mt-1">{testimonial.company}</p>
+                                    {/* Client Info */}
+                                    <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                                        <div className="relative w-14 h-14 flex-shrink-0">
+                                            <Image
+                                                unoptimized
+                                                fill
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                className="rounded-full object-cover border-2 border-white/20 shadow-lg"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-bold text-white text-lg leading-tight">{testimonial.name}</h4>
+                                            <p className="text-sm text-blue-200">{testimonial.title}</p>
+                                            <p className="text-xs text-[#60a5fa] font-semibold uppercase tracking-wide mt-1">{testimonial.company}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +161,22 @@ const TestimonialSection = () => {
                     ))}
                 </Swiper>
             </div>
+
+            <style jsx>{`
+                .bg-grid-pattern {
+                    background-image: 
+                        linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+                    background-size: 40px 40px;
+                }
+                :global(.swiper-pagination-bullet) {
+                    background: rgba(255, 255, 255, 0.5);
+                    opacity: 1;
+                }
+                :global(.swiper-pagination-bullet-active) {
+                    background: #60a5fa;
+                }
+            `}</style>
         </section>
     );
 };

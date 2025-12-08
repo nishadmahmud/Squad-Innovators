@@ -36,8 +36,7 @@ const Navbar = () => {
 
     return (
         <div
-            className='fixed left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300'
-            style={{ top: 'calc(1.5rem + var(--top-banner-height, 0px))' }}
+            className='relative flex justify-center px-4 py-6 transition-all duration-300 z-50'
         >
             <nav className="w-full max-w-[1400px] bg-white/80 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl px-6 py-3 flex justify-between items-center transition-all duration-300">
 

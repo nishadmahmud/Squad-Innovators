@@ -58,10 +58,10 @@ const IndustryExpertises = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-bold mb-4"
+                        className="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-4"
                     >
                         <span className="text-[#030f45]">Expertise Across </span>
-                        <span className="bg-gradient-to-r from-[#030f45] to-[#2563eb] bg-clip-text text-transparent">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#030f45] to-[#2563eb]">
                             Sectors
                         </span>
                     </motion.h2>
@@ -71,7 +71,7 @@ const IndustryExpertises = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-600 text-lg leading-relaxed"
+                        className="text-gray-600 text-lg md:text-xl leading-relaxed"
                     >
                         Our deep understanding of diverse industries empowers us to design customized software solutions that drive real results.
                     </motion.p>

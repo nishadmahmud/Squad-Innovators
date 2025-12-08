@@ -24,7 +24,7 @@ export default function WhiteLabelService() {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-wider uppercase mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-wider uppercase mb-6 shadow-lg"
                     >
                         <Sparkles className="w-4 h-4 text-[#2563eb]" />
                         PARTNERSHIP PROGRAM
@@ -35,10 +35,10 @@ export default function WhiteLabelService() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white"
+                        className="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-4 text-white"
                     >
                         Expand Your Business with{' '}
-                        <span className="bg-gradient-to-r from-[#2563eb] to-[#60a5fa] bg-clip-text text-transparent">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563eb] to-[#60a5fa]">
                             White-Label Solutions
                         </span>
                     </motion.h2>
@@ -48,7 +48,7 @@ export default function WhiteLabelService() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-300 text-lg leading-relaxed"
+                        className="text-blue-100 text-lg md:text-xl leading-relaxed font-light"
                     >
                         Deliver high-quality results faster, without investing in a full-time development team.
                     </motion.p>
