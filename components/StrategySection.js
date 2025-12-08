@@ -4,11 +4,19 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Users, Rocket, CheckCircle2 } from "lucide-react";
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const StrategySection = () => {
     return (
         <section className="bg-white text-black py-24 px-4 md:px-8 relative overflow-hidden">
-            <div className="container mx-auto max-w-7xl">
+            {/* Background Components */}
+            <AnimatedGradient variant="cool" intensity="light" />
+            <FloatingShapes variant="default" count={4} />
+            <GridPattern variant="grid" opacity={0.04} color="#2563eb" />
+
+            <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
                     {/* Left Side: Modern Image Composition */}

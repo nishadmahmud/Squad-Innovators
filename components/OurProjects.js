@@ -6,6 +6,9 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ExternalLink, Layers } from "lucide-react";
 import { clientsData } from "@/lib/clientsData";
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 // Select top projects to feature
 const featuredProjects = clientsData.slice(0, 5);
@@ -28,7 +31,12 @@ export default function OurProjects() {
     return (
         <section id="projects" className="py-24 bg-white relative overflow-hidden">
             {/* Background Decoration */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50 -skew-x-12 transform origin-top-right z-0"></div>
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <AnimatedGradient variant="cool" intensity="light" />
+                <FloatingShapes variant="default" count={5} />
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30 -skew-x-12 transform origin-top-right z-0"></div>
+                <GridPattern variant="grid" opacity={0.05} color="#2563eb" />
+            </div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 text-center md:text-left">

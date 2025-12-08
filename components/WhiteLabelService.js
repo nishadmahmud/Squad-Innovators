@@ -4,18 +4,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Zap, Shield, TrendingUp, Sparkles, Users, Rocket, Award } from 'lucide-react';
 import Link from 'next/link';
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 export default function WhiteLabelService() {
     return (
         <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#030f45] to-[#1e3a8a]">
-            {/* Animated Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#2563eb]/10 rounded-full blur-3xl"></div>
-            </div>
-
-            {/* Grid Pattern */}
-            <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+            {/* Background Components */}
+            <AnimatedGradient variant="purple" intensity="strong" />
+            <FloatingShapes variant="cool" count={6} />
+            <GridPattern variant="mesh" opacity={0.05} color="#60a5fa" />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}

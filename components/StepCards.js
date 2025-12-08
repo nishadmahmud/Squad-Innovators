@@ -11,6 +11,9 @@ import {
     Settings,
     CheckCircle2
 } from "lucide-react";
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const steps = [
     {
@@ -62,6 +65,11 @@ export default function StepCards() {
 
     return (
         <section className="py-24 bg-white relative overflow-hidden">
+            {/* Background Components */}
+            <AnimatedGradient variant="cool" intensity="light" />
+            <FloatingShapes variant="default" count={5} />
+            <GridPattern variant="diagonal" opacity={0.04} color="#2563eb" />
+
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-20">
                     <motion.span

@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus, HelpCircle, Code, DollarSign, Clock, Users } from 'lucide-react';
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const faqCategories = [
     {
@@ -69,11 +72,10 @@ const FAQSection = () => {
 
     return (
         <section className="py-20 bg-white relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-20 right-0 w-96 h-96 bg-blue-50 rounded-full blur-[100px] opacity-60"></div>
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-50 rounded-full blur-[100px] opacity-60"></div>
-            </div>
+            {/* Background Components */}
+            <AnimatedGradient variant="blue" intensity="light" />
+            <FloatingShapes variant="default" count={5} />
+            <GridPattern variant="dots" opacity={0.05} color="#2563eb" />
 
             <div className="container mx-auto px-4 max-w-5xl relative z-10">
                 {/* Header */}
@@ -124,8 +126,8 @@ const FAQSection = () => {
                                 setActiveIndex(0);
                             }}
                             className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeCategory === index
-                                    ? "bg-gradient-to-r from-[#030f45] to-[#2563eb] text-white shadow-lg"
-                                    : "bg-white text-gray-600 border border-gray-200 hover:border-[#2563eb] hover:text-[#2563eb]"
+                                ? "bg-gradient-to-r from-[#030f45] to-[#2563eb] text-white shadow-lg"
+                                : "bg-white text-gray-600 border border-gray-200 hover:border-[#2563eb] hover:text-[#2563eb]"
                                 }`}
                         >
                             {category.icon}
@@ -151,8 +153,8 @@ const FAQSection = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
                                 className={`bg-white rounded-2xl border transition-all duration-300 overflow-hidden ${activeIndex === index
-                                        ? "border-[#2563eb]/20 shadow-lg"
-                                        : "border-gray-100 hover:border-gray-200 hover:shadow-md"
+                                    ? "border-[#2563eb]/20 shadow-lg"
+                                    : "border-gray-100 hover:border-gray-200 hover:shadow-md"
                                     }`}
                             >
                                 <button
@@ -164,8 +166,8 @@ const FAQSection = () => {
                                         {faq.question}
                                     </span>
                                     <span className={`p-2 rounded-full transition-all duration-300 flex-shrink-0 ml-4 ${activeIndex === index
-                                            ? "bg-gradient-to-r from-[#030f45] to-[#2563eb] text-white"
-                                            : "bg-gray-50 text-gray-400 group-hover:bg-[#2563eb]/10 group-hover:text-[#2563eb]"
+                                        ? "bg-gradient-to-r from-[#030f45] to-[#2563eb] text-white"
+                                        : "bg-gray-50 text-gray-400 group-hover:bg-[#2563eb]/10 group-hover:text-[#2563eb]"
                                         }`}>
                                         {activeIndex === index ? <Minus size={20} /> : <Plus size={20} />}
                                     </span>

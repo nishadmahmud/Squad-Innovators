@@ -3,6 +3,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Building2, TrendingUp, Globe, Star, Quote } from "lucide-react";
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const companies = [
     { name: "Satsuma Corporation", category: "Japanese Website", logo: "/satsuna.png", width: 120, testimonial: "Outstanding quality and professionalism" },
@@ -28,10 +31,9 @@ const TrustedBy = () => {
     return (
         <section className="py-20 bg-gray-50 relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-[100px] opacity-60"></div>
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-100/40 rounded-full blur-[100px] opacity-60"></div>
-            </div>
+            <AnimatedGradient variant="blue" intensity="light" />
+            <FloatingShapes variant="default" count={7} />
+            <GridPattern variant="dots" opacity={0.06} color="#2563eb" />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}

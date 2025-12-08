@@ -16,6 +16,9 @@ import {
     Activity,
     Scissors
 } from 'lucide-react';
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const industries = [
     { name: "E-Commerce", icon: <ShoppingCart />, color: "from-teal-500 to-cyan-600" },
@@ -35,11 +38,10 @@ const industries = [
 const IndustryExpertises = () => {
     return (
         <section className="py-20 bg-gray-50 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
-                <div className="absolute bottom-20 right-20 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-40"></div>
-            </div>
+            {/* Background Components */}
+            <AnimatedGradient variant="blue" intensity="light" />
+            <FloatingShapes variant="default" count={6} />
+            <GridPattern variant="dots" opacity={0.06} color="#2563eb" />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}

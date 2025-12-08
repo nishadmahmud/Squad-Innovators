@@ -4,19 +4,17 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Sparkles, Zap } from 'lucide-react';
+import AnimatedGradient from './backgrounds/AnimatedGradient';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const CTASection = () => {
     return (
         <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[#030f45] to-[#1e3a8a]">
-            {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                {/* Gradient Blobs */}
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
-
-                {/* Grid Pattern */}
-                <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-            </div>
+            {/* Background Components */}
+            <AnimatedGradient variant="purple" intensity="strong" />
+            <FloatingShapes variant="cool" count={8} />
+            <GridPattern variant="mesh" opacity={0.08} color="#60a5fa" />
 
             <div className="container mx-auto px-4 relative z-10 text-center">
                 <motion.div
