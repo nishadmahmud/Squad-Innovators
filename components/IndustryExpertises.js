@@ -18,69 +18,156 @@ import {
 } from 'lucide-react';
 
 const industries = [
-    { name: "E-Commerce", icon: <ShoppingCart />, color: "bg-teal-100 text-teal-600" },
-    { name: "POS Systems", icon: <Store />, color: "bg-orange-100 text-orange-600" },
-    { name: "Lifestyle", icon: <Coffee />, color: "bg-blue-100 text-blue-600" },
-    { name: "Official Website", icon: <Globe />, color: "bg-green-100 text-green-600" },
-    { name: "Logistics", icon: <Truck />, color: "bg-amber-100 text-amber-600" },
-    { name: "Automotive", icon: <Car />, color: "bg-red-100 text-red-600" },
-    { name: "Fashion & Apparel", icon: <Shirt />, color: "bg-pink-100 text-pink-600" },
-    { name: "Non-Profit", icon: <HeartHandshake />, color: "bg-rose-100 text-rose-600" },
-    { name: "AI Solutions", icon: <BrainCircuit />, color: "bg-purple-100 text-purple-600" },
-    { name: "Pharmacy", icon: <Pill />, color: "bg-cyan-100 text-cyan-600" },
-    { name: "Health & Fitness", icon: <Activity />, color: "bg-emerald-100 text-emerald-600" },
-    { name: "Saloon & Spa", icon: <Scissors />, color: "bg-indigo-100 text-indigo-600" },
+    { name: "E-Commerce", icon: <ShoppingCart />, color: "from-teal-500 to-cyan-600" },
+    { name: "POS Systems", icon: <Store />, color: "from-orange-500 to-red-600" },
+    { name: "Lifestyle", icon: <Coffee />, color: "from-blue-500 to-indigo-600" },
+    { name: "Official Website", icon: <Globe />, color: "from-green-500 to-emerald-600" },
+    { name: "Logistics", icon: <Truck />, color: "from-amber-500 to-orange-600" },
+    { name: "Automotive", icon: <Car />, color: "from-red-500 to-rose-600" },
+    { name: "Fashion & Apparel", icon: <Shirt />, color: "from-pink-500 to-fuchsia-600" },
+    { name: "Non-Profit", icon: <HeartHandshake />, color: "from-rose-500 to-pink-600" },
+    { name: "AI Solutions", icon: <BrainCircuit />, color: "from-purple-500 to-violet-600" },
+    { name: "Pharmacy", icon: <Pill />, color: "from-cyan-500 to-blue-600" },
+    { name: "Health & Fitness", icon: <Activity />, color: "from-emerald-500 to-green-600" },
+    { name: "Saloon & Spa", icon: <Scissors />, color: "from-indigo-500 to-purple-600" },
 ];
 
 const IndustryExpertises = () => {
     return (
-        <section className="py-24 bg-gray-50 relative overflow-hidden">
+        <section className="py-20 bg-gray-50 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-40"></div>
+                <div className="absolute bottom-20 right-20 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-40"></div>
+            </div>
+
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
-                    <motion.span
+                {/* Header */}
+                <div className="text-center mb-12 max-w-3xl mx-auto">
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-secondary font-bold tracking-wider uppercase text-sm"
+                        className="inline-block px-4 py-2 rounded-full bg-white border border-gray-200 text-[#2563eb] text-xs font-bold tracking-wider uppercase mb-4 shadow-sm"
                     >
-                        Industries We Serve
-                    </motion.span>
+                        INDUSTRIES WE SERVE
+                    </motion.div>
+
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-bold text-primary mt-2 mb-6"
+                        className="text-4xl md:text-5xl font-bold mb-4"
                     >
-                        Expertise Across <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Sectors</span>
+                        <span className="text-[#030f45]">Expertise Across </span>
+                        <span className="bg-gradient-to-r from-[#030f45] to-[#2563eb] bg-clip-text text-transparent">
+                            Sectors
+                        </span>
                     </motion.h2>
+
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-600 max-w-2xl mx-auto text-lg"
+                        className="text-gray-600 text-lg leading-relaxed"
                     >
                         Our deep understanding of diverse industries empowers us to design customized software solutions that drive real results.
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {industries.map((item, index) => (
+                {/* Bento Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 max-w-7xl mx-auto">
+                    {/* E-Commerce - Large Card */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3 }}
+                        className="col-span-2 row-span-2 group relative"
+                    >
+                        <div className={`absolute -inset-0.5 bg-gradient-to-r ${industries[0].color} rounded-3xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300`}></div>
+                        <div className="relative h-full bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between">
+                            <div>
+                                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${industries[0].color} flex items-center justify-center mb-4 text-white shadow-lg`}>
+                                    {React.cloneElement(industries[0].icon, { size: 32 })}
+                                </div>
+                                <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                                    {industries[0].name}
+                                </h3>
+                                <p className="text-gray-600 text-sm">
+                                    Building scalable online stores with seamless payment integration and inventory management.
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Regular Cards */}
+                    {industries.slice(1, 7).map((item, index) => (
                         <motion.div
-                            key={index}
+                            key={index + 1}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.05 }}
-                            className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 hover:-translate-y-1"
+                            transition={{ delay: (index + 1) * 0.05, duration: 0.3 }}
+                            className="col-span-1 group relative"
                         >
-                            <div className={`w-14 h-14 rounded-xl ${item.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                                {React.cloneElement(item.icon, { size: 28 })}
+                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.color} rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300`}></div>
+                            <div className="relative h-full bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-3 text-white shadow-md`}>
+                                    {React.cloneElement(item.icon, { size: 24 })}
+                                </div>
+                                <h3 className="text-base font-bold text-gray-800">
+                                    {item.name}
+                                </h3>
                             </div>
-                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-primary transition-colors">
-                                {item.name}
-                            </h3>
+                        </motion.div>
+                    ))}
+
+                    {/* AI Solutions - Wide Card */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.3 }}
+                        className="col-span-2 group relative"
+                    >
+                        <div className={`absolute -inset-0.5 bg-gradient-to-r ${industries[8].color} rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300`}></div>
+                        <div className="relative h-full bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex items-center gap-4">
+                            <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${industries[8].color} flex items-center justify-center text-white shadow-md flex-shrink-0`}>
+                                {React.cloneElement(industries[8].icon, { size: 28 })}
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-800">
+                                    {industries[8].name}
+                                </h3>
+                                <p className="text-gray-600 text-sm">
+                                    Cutting-edge AI integration
+                                </p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Remaining Cards */}
+                    {industries.slice(9).map((item, index) => (
+                        <motion.div
+                            key={index + 9}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: (index + 9) * 0.05, duration: 0.3 }}
+                            className="col-span-1 group relative"
+                        >
+                            <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.color} rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300`}></div>
+                            <div className="relative h-full bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 hover:-translate-y-1">
+                                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-3 text-white shadow-md`}>
+                                    {React.cloneElement(item.icon, { size: 24 })}
+                                </div>
+                                <h3 className="text-base font-bold text-gray-800">
+                                    {item.name}
+                                </h3>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

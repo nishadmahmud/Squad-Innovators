@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Marquee from "react-fast-marquee";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
 const techStack = {
     "Backend": [
@@ -47,37 +46,130 @@ const techStack = {
     ],
 };
 
+// 3D Tech Card Component
+const TechCard = ({ tech, index }) => {
+    const [isHovered, setIsHovered] = useState(false);
+    const cardRef = useRef(null);
+
+    const rotateX = useSpring(useMotionValue(0), { stiffness: 300, damping: 30 });
+    const rotateY = useSpring(useMotionValue(0), { stiffness: 300, damping: 30 });
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const mouseXPos = e.clientX - centerX;
+        const mouseYPos = e.clientY - centerY;
+
+        rotateY.set(mouseXPos / 15);
+        rotateX.set(-mouseYPos / 15);
+    };
+
+    const handleMouseLeave = () => {
+        rotateX.set(0);
+        rotateY.set(0);
+        setIsHovered(false);
+    };
+
+    return (
+        <motion.div
+            ref={cardRef}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05, duration: 0.3 }}
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+            }}
+            className="relative group cursor-pointer"
+        >
+            {/* Glow Effect */}
+            <motion.div
+                className="absolute -inset-1 bg-gradient-to-r from-[#030f45] to-[#2563eb] rounded-2xl blur-lg opacity-0 group-hover:opacity-30 transition-opacity duration-300"
+            />
+
+            {/* Main Card */}
+            <div
+                className="relative w-40 h-48 bg-white rounded-2xl flex flex-col items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                style={{ transform: "translateZ(20px)" }}
+            >
+                {/* Shine Effect */}
+                <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full rounded-2xl"
+                    animate={isHovered ? { x: ["100%", "200%"] } : {}}
+                    transition={{ duration: 0.5 }}
+                />
+
+                {/* Icon Container */}
+                <motion.div
+                    className="relative z-10 w-16 h-16 mb-4 flex items-center justify-center"
+                    style={{ transform: "translateZ(30px)" }}
+                    animate={isHovered ? { scale: 1.1 } : {}}
+                    transition={{ duration: 0.3 }}
+                >
+                    <Image
+                        unoptimized
+                        width={64}
+                        height={64}
+                        src={tech.icon}
+                        alt={tech.name}
+                        className="w-full h-full object-contain"
+                    />
+                </motion.div>
+
+                {/* Tech Name */}
+                <motion.p
+                    className="relative z-10 text-gray-700 font-semibold text-sm text-center px-4"
+                    style={{ transform: "translateZ(25px)" }}
+                >
+                    {tech.name}
+                </motion.p>
+            </div>
+        </motion.div>
+    );
+};
+
 const TechStackTabs = () => {
     const [activeTab, setActiveTab] = useState("Frontend");
 
     return (
-        <section className="py-24 bg-gray-50 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                <div className="absolute top-20 left-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-                <div className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+        <section className="py-20 relative overflow-hidden bg-gray-50">
+            {/* Simple Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
+                <div className="absolute bottom-20 right-20 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-30"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
-                <div className="text-center mb-16">
-                    <motion.span
+                <div className="text-center mb-12">
+                    <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-block py-1 px-3 rounded-full bg-white border border-gray-200 text-primary text-xs font-bold tracking-wider uppercase mb-4 shadow-sm"
+                        className="inline-block px-4 py-2 rounded-full bg-white border border-gray-200 text-[#030f45] text-xs font-bold tracking-wider uppercase mb-4 shadow-sm"
                     >
-                        Technology
-                    </motion.span>
+                        TECHNOLOGY
+                    </motion.div>
+
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-bold text-primary mb-6"
+                        className="text-4xl md:text-5xl font-bold mb-4"
                     >
-                        Our Powerful <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Tech Stack</span>
+                        <span className="text-[#030f45]">Our Powerful </span>
+                        <span className="bg-gradient-to-r from-[#030f45] to-[#2563eb] bg-clip-text text-transparent">
+                            Tech Stack
+                        </span>
                     </motion.h2>
+
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -85,80 +177,62 @@ const TechStackTabs = () => {
                         transition={{ delay: 0.2 }}
                         className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto"
                     >
-                        We leverage a diverse range of cutting-edge technologies to build scalable, reliable, and secure applications.
+                        We leverage cutting-edge technologies to build scalable, reliable, and secure applications.
                     </motion.p>
                 </div>
 
                 {/* Tabs */}
-                <div className="flex justify-center mb-16 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
+                <div className="flex justify-center mb-12 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
                     <div className="flex gap-3 w-max md:w-auto">
-                        {Object.keys(techStack).map((tab) => (
-                            <button
+                        {Object.keys(techStack).map((tab, idx) => (
+                            <motion.button
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
-                                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base relative overflow-hidden group whitespace-nowrap ${activeTab === tab
-                                    ? "text-white shadow-lg scale-105"
-                                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-100"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.05 }}
+                                className={`relative px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm whitespace-nowrap ${activeTab === tab
+                                        ? "text-white shadow-lg"
+                                        : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                                     }`}
                             >
                                 {activeTab === tab && (
                                     <motion.div
-                                        layoutId="activeTab"
-                                        className="absolute inset-0 bg-primary"
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                                        layoutId="activeTabBg"
+                                        className="absolute inset-0 bg-gradient-to-r from-[#030f45] to-[#2563eb] rounded-full"
+                                        transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
                                     />
                                 )}
                                 <span className="relative z-10">{tab}</span>
-                            </button>
+                            </motion.button>
                         ))}
                     </div>
                 </div>
 
-                {/* Tech Icons Marquee */}
-                <div className="min-h-[300px] relative">
-                    {/* Gradient Masks for Smooth Fade */}
-                    <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none"></div>
-                    <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none"></div>
-
+                {/* Tech Cards Grid */}
+                <div className="perspective-1000">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={activeTab}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.5 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex flex-wrap justify-center gap-6 py-8"
                         >
-                            <Marquee gradient={false} speed={40} pauseOnHover={true} className="py-10">
-                                <div className="flex gap-8 px-4">
-                                    {[...techStack[activeTab], ...techStack[activeTab], ...techStack[activeTab], ...techStack[activeTab]].map((tech, index) => (
-                                        <div
-                                            key={`${tech.name}-${index}`}
-                                            className="group relative w-40 h-40 bg-white rounded-[2rem] flex flex-col items-center justify-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 mx-4 cursor-pointer hover:-translate-y-2"
-                                        >
-                                            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem]"></div>
-
-                                            <div className="relative z-10 w-16 h-16 mb-4 transition-transform duration-300 group-hover:scale-110">
-                                                <Image
-                                                    unoptimized
-                                                    width={64}
-                                                    height={64}
-                                                    src={tech.icon}
-                                                    alt={tech.name}
-                                                    className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
-                                                />
-                                            </div>
-
-                                            <p className="relative z-10 text-gray-600 font-bold text-sm group-hover:text-primary transition-colors duration-300">
-                                                {tech.name}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </Marquee>
+                            {techStack[activeTab].map((tech, index) => (
+                                <TechCard key={tech.name} tech={tech} index={index} />
+                            ))}
                         </motion.div>
                     </AnimatePresence>
                 </div>
             </div>
+
+            <style jsx>{`
+                .perspective-1000 {
+                    perspective: 1000px;
+                }
+            `}</style>
         </section>
     );
 };
