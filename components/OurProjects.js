@@ -9,6 +9,7 @@ import { clientsData } from "@/lib/clientsData";
 import AnimatedGradient from './backgrounds/AnimatedGradient';
 import FloatingShapes from './backgrounds/FloatingShapes';
 import GridPattern from './backgrounds/GridPattern';
+import GeometricShapes from './backgrounds/GeometricShapes';
 
 // Select top projects to feature
 const featuredProjects = clientsData.slice(0, 5);
@@ -36,6 +37,7 @@ export default function OurProjects() {
                 <FloatingShapes variant="default" count={5} />
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30 -skew-x-12 transform origin-top-right z-0"></div>
                 <GridPattern variant="grid" opacity={0.05} color="#2563eb" />
+                <GeometricShapes variant="default" count={4} />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">

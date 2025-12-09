@@ -6,6 +6,7 @@ import { Building2, TrendingUp, Globe, Star, Quote } from "lucide-react";
 import AnimatedGradient from './backgrounds/AnimatedGradient';
 import FloatingShapes from './backgrounds/FloatingShapes';
 import GridPattern from './backgrounds/GridPattern';
+import GeometricShapes from './backgrounds/GeometricShapes';
 
 const companies = [
     { name: "Satsuma Corporation", category: "Japanese Website", logo: "/satsuna.png", width: 120, testimonial: "Outstanding quality and professionalism" },
@@ -34,6 +35,7 @@ const TrustedBy = () => {
             <AnimatedGradient variant="blue" intensity="light" />
             <FloatingShapes variant="default" count={7} />
             <GridPattern variant="dots" opacity={0.06} color="#2563eb" />
+            <GeometricShapes variant="default" count={3} />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}

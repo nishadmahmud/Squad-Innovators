@@ -4,6 +4,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageSquare, Clock, Globe } from 'lucide-react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import WavyLines from './backgrounds/WavyLines';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const ContactPageContent = () => {
     const fadeInUp = {
@@ -22,9 +25,23 @@ const ContactPageContent = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen pt-24 pb-12 overflow-hidden">
+        <div className="bg-white min-h-screen pt-24 pb-12 overflow-hidden relative">
+            {/* Background Elements */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <WavyLines
+                    lineCount={4}
+                    color="#2563eb"
+                    opacity={0.06}
+                    amplitude={30}
+                    frequency={0.018}
+                    speed={2}
+                />
+                <FloatingShapes variant="default" count={6} />
+                <GridPattern variant="grid" opacity={0.04} color="#2563eb" />
+            </div>
+
             {/* Hero Section */}
-            <section className="relative container mx-auto px-4 mb-16 text-center">
+            <section className="relative container mx-auto px-4 mb-16 text-center z-10">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100/40 blur-[100px] -z-10 rounded-full pointer-events-none"></div>
 
                 <motion.div

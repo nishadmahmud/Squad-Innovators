@@ -7,6 +7,7 @@ import { Phone, Users, Rocket, CheckCircle2 } from "lucide-react";
 import AnimatedGradient from './backgrounds/AnimatedGradient';
 import FloatingShapes from './backgrounds/FloatingShapes';
 import GridPattern from './backgrounds/GridPattern';
+import WavyLines from './backgrounds/WavyLines';
 
 const StrategySection = () => {
     return (
@@ -15,6 +16,14 @@ const StrategySection = () => {
             <AnimatedGradient variant="cool" intensity="light" />
             <FloatingShapes variant="default" count={4} />
             <GridPattern variant="grid" opacity={0.04} color="#2563eb" />
+            <WavyLines
+                lineCount={3}
+                color="#2563eb"
+                opacity={0.06}
+                amplitude={25}
+                frequency={0.02}
+                speed={2}
+            />
 
             <div className="container mx-auto max-w-7xl relative z-10">
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">

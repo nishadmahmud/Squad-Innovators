@@ -14,6 +14,7 @@ import {
 import AnimatedGradient from './backgrounds/AnimatedGradient';
 import FloatingShapes from './backgrounds/FloatingShapes';
 import GridPattern from './backgrounds/GridPattern';
+import CodeRain from './backgrounds/CodeRain';
 
 const steps = [
     {
@@ -69,6 +70,12 @@ export default function StepCards() {
             <AnimatedGradient variant="cool" intensity="light" />
             <FloatingShapes variant="default" count={5} />
             <GridPattern variant="diagonal" opacity={0.04} color="#2563eb" />
+            <CodeRain
+                color="#2563eb"
+                density={0.25}
+                speed={0.6}
+                fontSize={10}
+            />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-20">

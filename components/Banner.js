@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, Phone, Play } from "lucide-react";
 import { motion } from "framer-motion";
 import WaveBackground from "./WaveBackground";
+import ParticleNetwork from "./backgrounds/ParticleNetwork";
 
 const Banner = () => {
     return (
@@ -18,6 +19,17 @@ const Banner = () => {
                 {/* Wave Background Integration */}
                 <div className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none">
                     <WaveBackground />
+                </div>
+                {/* Particle Network */}
+                <div className="absolute inset-0 pointer-events-none">
+                    <ParticleNetwork
+                        particleCount={50}
+                        color="#00C8E0"
+                        lineColor="#2563eb"
+                        maxDistance={120}
+                        mouseRadius={180}
+                        speed={0.3}
+                    />
                 </div>
             </div>
 

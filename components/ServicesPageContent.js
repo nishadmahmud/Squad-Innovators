@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { servicesData } from '@/lib/servicesData';
+import MouseGlow from './backgrounds/MouseGlow';
+import FloatingShapes from './backgrounds/FloatingShapes';
+import GridPattern from './backgrounds/GridPattern';
 
 const ServicesPageContent = () => {
     const fadeInUp = {
@@ -23,9 +26,22 @@ const ServicesPageContent = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen pt-24 pb-12 overflow-hidden">
+        <div className="bg-white min-h-screen pt-24 pb-12 overflow-hidden relative">
+            {/* Background Elements */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <FloatingShapes variant="default" count={8} />
+                <GridPattern variant="dots" opacity={0.06} color="#2563eb" />
+            </div>
+            <MouseGlow
+                color="#2563eb"
+                size={350}
+                blur={100}
+                opacity={0.1}
+                lag={0.12}
+            />
+
             {/* Hero Section */}
-            <section className="relative container mx-auto px-4 mb-16 text-center">
+            <section className="relative container mx-auto px-4 mb-16 text-center z-10">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-100/40 blur-[100px] -z-10 rounded-full pointer-events-none"></div>
 
                 <motion.div

@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { clientsData } from '@/lib/clientsData';
 import { motion } from 'framer-motion';
 import { Building2 } from 'lucide-react';
+import GeometricShapes from '@/components/backgrounds/GeometricShapes';
+import AnimatedGradient from '@/components/backgrounds/AnimatedGradient';
+import GridPattern from '@/components/backgrounds/GridPattern';
 
 export default function ClientsPage() {
     const fadeInUp = {
@@ -23,11 +26,14 @@ export default function ClientsPage() {
     };
 
     return (
-        <div className="bg-white min-h-screen pt-32 pb-20 overflow-hidden">
+        <div className="bg-white min-h-screen pt-32 pb-20 overflow-hidden relative">
             {/* Background Decorations */}
             <div className="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
                 <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-blue-50/40 rounded-full blur-3xl -translate-x-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-cyan-50/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+                <AnimatedGradient variant="blue" intensity="light" />
+                <GeometricShapes variant="default" count={4} />
+                <GridPattern variant="dots" opacity={0.05} color="#2563eb" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">

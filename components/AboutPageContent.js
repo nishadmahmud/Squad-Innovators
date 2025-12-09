@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import { Target, Zap, Users, Award, ArrowRight, CheckCircle2 } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
+import ParticleNetwork from './backgrounds/ParticleNetwork';
+import WavyLines from './backgrounds/WavyLines';
+import GeometricShapes from './backgrounds/GeometricShapes';
 
 const AboutPageContent = () => {
     const [ref, inView] = useInView({
@@ -29,9 +32,30 @@ const AboutPageContent = () => {
     };
 
     return (
-        <div className="bg-white min-h-screen pt-24 pb-12 overflow-hidden">
+        <div className="bg-white min-h-screen pt-24 pb-12 overflow-hidden relative">
+            {/* Background Elements */}
+            <div className="fixed inset-0 pointer-events-none z-0">
+                <ParticleNetwork
+                    particleCount={40}
+                    color="#2563eb"
+                    lineColor="#2563eb"
+                    maxDistance={100}
+                    mouseRadius={150}
+                    speed={0.2}
+                />
+                <WavyLines
+                    lineCount={3}
+                    color="#2563eb"
+                    opacity={0.05}
+                    amplitude={20}
+                    frequency={0.015}
+                    speed={1.5}
+                />
+                <GeometricShapes variant="default" count={3} />
+            </div>
+
             {/* Hero Section */}
-            <section className="relative container mx-auto px-4 mb-24">
+            <section className="relative container mx-auto px-4 mb-24 z-10">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-blue-100/30 blur-3xl -z-10 rounded-full opacity-60 pointer-events-none"></div>
 
                 <motion.div
