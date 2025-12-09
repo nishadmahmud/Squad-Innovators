@@ -204,7 +204,7 @@ const OurServices = () => {
                                 <div className="flex md:justify-between items-start mb-4 md:mb-6 gap-3 md:gap-0">
                                     <div className={`${isFeatured(index) ? 'w-16 h-16 md:w-20 md:h-20' : 'w-14 h-14 md:w-16 md:h-16'} bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
                                         <div className="text-primary group-hover:text-secondary transition-colors duration-300">
-                                            {React.cloneElement(service.icon, { size: isFeatured(index) ? (window.innerWidth < 768 ? 28 : 36) : (window.innerWidth < 768 ? 24 : 32) })}
+                                            {React.cloneElement(service.icon, { className: isFeatured(index) ? 'w-7 h-7 md:w-9 md:h-9' : 'w-6 h-6 md:w-8 md:h-8' })}
                                         </div>
                                     </div>
                                     <div className="flex flex-col md:items-end gap-2 flex-1 md:flex-initial">
