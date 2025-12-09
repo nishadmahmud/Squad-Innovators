@@ -10,7 +10,8 @@ const Footer = () => {
     return (
         <footer className="bg-primary text-white pt-20 pb-10">
             <div className="max-w-6xl mx-auto px-4">
-                <div className="grid md:grid-cols-4 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-16">
+                    {/* Logo and Social - Full width on mobile */}
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-3 mb-6">
                             <div className="bg-white p-2 rounded-lg">
@@ -35,32 +36,35 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div>
-                        <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Quick Links</h4>
-                        <ul className="space-y-3">
-                            <li><a href="/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Home</a></li>
-                            <li><a href="/about" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">About Us</a></li>
-                            <li><a href="/services" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Services</a></li>
-                            <li><a href="/projects" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Projects</a></li>
-                            <li><a href="/clients" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Clients</a></li>
-                            <li><Link href="/contact" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Contact</Link></li>
-                        </ul>
+                    {/* Quick Links and Services - Side by side on mobile */}
+                    <div className="col-span-1 grid grid-cols-2 gap-8 md:contents">
+                        <div>
+                            <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Quick Links</h4>
+                            <ul className="space-y-3">
+                                <li><a href="/" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Home</a></li>
+                                <li><a href="/about" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">About Us</a></li>
+                                <li><a href="/services" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Services</a></li>
+                                <li><a href="/projects" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Projects</a></li>
+                                <li><a href="/clients" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Clients</a></li>
+                                <li><Link href="/contact" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Contact</Link></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Services</h4>
+                            <ul className="space-y-3">
+                                <li><a href="/services/ui-ux-design" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">UI/UX Design</a></li>
+                                <li><a href="/services/mobile-app-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Mobile App Development</a></li>
+                                <li><a href="/services/software-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Software Development</a></li>
+                                <li><a href="/services/ecommerce-solutions" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">eCommerce Solutions</a></li>
+                                <li><a href="/services/saas-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">SaaS Development</a></li>
+                                <li><a href="/services/devops-services" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">DevOps Services</a></li>
+                                <li><a href="/services/pos-solutions" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">POS Solutions</a></li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div>
-                        <h4 className="text-lg font-bold mb-6 relative inline-block after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-1 after:bg-secondary after:rounded-full">Services</h4>
-                        <ul className="space-y-3">
-                            <li><a href="/services/ui-ux-design" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">UI/UX Design</a></li>
-                            <li><a href="/services/mobile-app-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Mobile App Development</a></li>
-                            <li><a href="/services/software-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">Software Development</a></li>
-                            <li><a href="/services/ecommerce-solutions" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">eCommerce Solutions</a></li>
-                            <li><a href="/services/saas-development" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">SaaS Development</a></li>
-                            <li><a href="/services/devops-services" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">DevOps Services</a></li>
-                            <li><a href="/services/pos-solutions" className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 inline-block">POS Solutions</a></li>
-                        </ul>
-                    </div>
-
-                    {/* Contact Info */}
+                    {/* Contact Info - Full width on mobile */}
                     <div>
                         <h3 className="text-xl font-bold mb-6">Contact Us</h3>
                         <ul className="space-y-4">

@@ -78,14 +78,16 @@ const TrustedBy = () => {
                     {industryStats.map((stat, index) => (
                         <div key={index} className="relative group">
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.color} rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300`}></div>
-                            <div className="relative bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
-                                <div className={`inline-flex p-2 rounded-lg bg-gradient-to-br ${stat.color} text-white mb-2`}>
+                            <div className="relative bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <div className={`inline-flex p-2 rounded-lg bg-gradient-to-br ${stat.color} text-white md:mb-2 flex-shrink-0`}>
                                     {stat.icon}
                                 </div>
-                                <div className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent tabular-nums`}>
-                                    {stat.count}
+                                <div className="flex-1 md:flex-initial">
+                                    <div className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent tabular-nums`}>
+                                        {stat.count}
+                                    </div>
+                                    <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                                 </div>
-                                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
                             </div>
                         </div>
                     ))}

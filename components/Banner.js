@@ -9,7 +9,7 @@ import WaveBackground from "./WaveBackground";
 
 const Banner = () => {
     return (
-        <div id="home" className="relative w-full min-h-screen flex items-center pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#030f45]">
+        <div id="home" className="relative w-full min-h-screen flex items-center pt-20 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#030f45]">
             {/* Dynamic Background */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-secondary/20 rounded-full blur-[120px] animate-pulse"></div>
@@ -30,15 +30,15 @@ const Banner = () => {
                         transition={{ duration: 0.8 }}
                         className="flex flex-col items-start text-left"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary text-sm font-bold uppercase tracking-wider mb-8 shadow-lg">
-                            <span className="relative flex h-3 w-3">
+                        <div className="inline-flex items-center gap-2 px-3 py-2 md:px-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-secondary text-[10px] md:text-sm font-bold uppercase tracking-wider mb-6 md:mb-8 shadow-lg">
+                            <span className="relative flex h-3 w-3 flex-shrink-0">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
                             </span>
-                            #1 Software Development Company
+                            <span className="whitespace-nowrap">#1 Software Development Company</span>
                         </div>
 
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8 tracking-tight">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 md:mb-8 tracking-tight">
                             We Build <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-blue-400">Digital Empires</span>
                         </h1>

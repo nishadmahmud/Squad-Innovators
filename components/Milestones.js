@@ -89,39 +89,41 @@ const Milestones = () => {
                 </motion.div>
 
                 {/* Main Milestones */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-12">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-12">
                     {mainMilestones.map((item, index) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, y: 20 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="relative group"
+                            className="relative group h-full"
                         >
                             {/* Glow Effect */}
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.color} rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300`}></div>
 
                             {/* Card */}
-                            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-2xl text-center hover:bg-white/10 transition-all duration-300">
+                            <div className="relative bg-white/5 backdrop-blur-md border border-white/10 p-4 md:p-6 rounded-2xl hover:bg-white/10 transition-all duration-300 h-full min-h-[140px] md:min-h-0 flex md:flex-col md:text-center items-center md:items-stretch gap-3 md:gap-0">
                                 {/* Icon */}
-                                <div className={`w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg`}>
-                                    {React.cloneElement(item.icon, { size: 28 })}
+                                <div className={`w-12 h-12 md:w-14 md:h-14 md:mx-auto md:mb-4 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg flex-shrink-0`}>
+                                    {React.cloneElement(item.icon, { size: 24 })}
                                 </div>
 
-                                {/* Count */}
-                                <h3 className="text-4xl md:text-5xl font-bold text-white mb-2 tabular-nums">
-                                    {inView ? <CountUp end={item.count} duration={2} suffix={item.suffix} /> : "0"}
-                                </h3>
+                                <div className="flex-1 md:flex-initial">
+                                    {/* Count */}
+                                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-1 md:mb-2 tabular-nums leading-tight">
+                                        {inView ? <CountUp end={item.count} duration={2} suffix={item.suffix} /> : "0"}
+                                    </h3>
 
-                                {/* Label */}
-                                <p className="text-gray-300 font-medium text-sm mb-1">
-                                    {item.label}
-                                </p>
+                                    {/* Label */}
+                                    <p className="text-gray-300 font-medium text-xs md:text-sm mb-0.5 md:mb-1 leading-tight">
+                                        {item.label}
+                                    </p>
 
-                                {/* Description */}
-                                <p className="text-gray-400 text-xs">
-                                    {item.description}
-                                </p>
+                                    {/* Description */}
+                                    <p className="text-gray-400 text-[10px] md:text-xs leading-tight line-clamp-2 md:line-clamp-none">
+                                        {item.description}
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

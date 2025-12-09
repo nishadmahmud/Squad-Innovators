@@ -130,20 +130,22 @@ const OurServices = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="flex flex-wrap justify-center gap-3 mb-12"
+                    className="mb-12 -mx-4 px-4 md:mx-0 md:px-0"
                 >
-                    {categories.map((category) => (
-                        <button
-                            key={category}
-                            onClick={() => setActiveFilter(category)}
-                            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeFilter === category
-                                ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105'
-                                : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary hover:shadow-md'
-                                }`}
-                        >
-                            {category === 'all' ? 'All Services' : category}
-                        </button>
-                    ))}
+                    <div className="flex md:flex-wrap md:justify-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                        {categories.map((category) => (
+                            <button
+                                key={category}
+                                onClick={() => setActiveFilter(category)}
+                                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeFilter === category
+                                    ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg scale-105'
+                                    : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary hover:shadow-md'
+                                    }`}
+                            >
+                                {category === 'all' ? 'All Services' : category}
+                            </button>
+                        ))}
+                    </div>
                 </motion.div>
 
                 {/* Stats Bar */}
@@ -162,14 +164,16 @@ const OurServices = () => {
                     ].map((stat, index) => (
                         <div key={index} className="relative group">
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.color} rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300`}></div>
-                            <div className="relative bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
-                                <div className={`inline-flex p-2 rounded-lg bg-gradient-to-br ${stat.color} text-white mb-2`}>
+                            <div className="relative bg-white rounded-xl p-4 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex md:flex-col items-center md:items-start gap-3 md:gap-0">
+                                <div className={`inline-flex p-2 rounded-lg bg-gradient-to-br ${stat.color} text-white md:mb-2 flex-shrink-0`}>
                                     {stat.icon}
                                 </div>
-                                <div className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent tabular-nums`}>
-                                    {stat.value}
+                                <div className="flex-1 md:flex-initial">
+                                    <div className={`text-2xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent tabular-nums`}>
+                                        {stat.value}
+                                    </div>
+                                    <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
                                 </div>
-                                <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
                             </div>
                         </div>
                     ))}
@@ -197,29 +201,34 @@ const OurServices = () => {
                                 className="h-full flex flex-col relative z-10"
                             >
                                 {/* Header */}
-                                <div className="flex justify-between items-start mb-6">
-                                    <div className={`${isFeatured(index) ? 'w-20 h-20' : 'w-16 h-16'} bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                                <div className="flex md:justify-between items-start mb-4 md:mb-6 gap-3 md:gap-0">
+                                    <div className={`${isFeatured(index) ? 'w-16 h-16 md:w-20 md:h-20' : 'w-14 h-14 md:w-16 md:h-16'} bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
                                         <div className="text-primary group-hover:text-secondary transition-colors duration-300">
-                                            {React.cloneElement(service.icon, { size: isFeatured(index) ? 36 : 32 })}
+                                            {React.cloneElement(service.icon, { size: isFeatured(index) ? (window.innerWidth < 768 ? 28 : 36) : (window.innerWidth < 768 ? 24 : 32) })}
                                         </div>
                                     </div>
-                                    <div className="flex flex-col items-end gap-2">
-                                        <div className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                                            <ArrowUpRight className="w-5 h-5 text-primary" />
-                                        </div>
-                                        <div className="flex items-center gap-1 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-gray-200">
-                                            <Zap className="w-3 h-3 text-amber-500" />
-                                            <span className="text-xs font-semibold text-gray-700">{service.projects}</span>
+                                    <div className="flex flex-col md:items-end gap-2 flex-1 md:flex-initial">
+                                        <h3 className={`${isFeatured(index) ? 'text-xl md:text-3xl' : 'text-lg md:text-2xl'} font-bold text-gray-900 group-hover:text-primary transition-colors md:hidden leading-tight`}>
+                                            {service.title}
+                                        </h3>
+                                        <div className="hidden md:flex flex-col items-end gap-2">
+                                            <div className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
+                                                <ArrowUpRight className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div className="flex items-center gap-1 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-gray-200">
+                                                <Zap className="w-3 h-3 text-amber-500" />
+                                                <span className="text-xs font-semibold text-gray-700">{service.projects}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Content */}
                                 <div className="flex-1">
-                                    <h3 className={`${isFeatured(index) ? 'text-3xl' : 'text-2xl'} font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors`}>
+                                    <h3 className={`hidden md:block ${isFeatured(index) ? 'text-3xl' : 'text-2xl'} font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors`}>
                                         {service.title}
                                     </h3>
-                                    <p className={`text-gray-600 leading-relaxed mb-6 ${isFeatured(index) ? 'line-clamp-4' : 'line-clamp-3'}`}>
+                                    <p className={`text-gray-600 leading-relaxed mb-4 md:mb-6 text-sm md:text-base ${isFeatured(index) ? 'line-clamp-3 md:line-clamp-4' : 'line-clamp-2 md:line-clamp-3'}`}>
                                         {service.description}
                                     </p>
 

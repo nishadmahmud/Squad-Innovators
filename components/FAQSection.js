@@ -116,24 +116,26 @@ const FAQSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="flex flex-wrap justify-center gap-3 mb-12"
+                    className="mb-12 -mx-4 px-4 md:mx-0 md:px-0"
                 >
-                    {faqCategories.map((category, index) => (
-                        <button
-                            key={index}
-                            onClick={() => {
-                                setActiveCategory(index);
-                                setActiveIndex(0);
-                            }}
-                            className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${activeCategory === index
-                                ? "bg-gradient-to-r from-[#030f45] to-[#2563eb] text-white shadow-lg"
-                                : "bg-white text-gray-600 border border-gray-200 hover:border-[#2563eb] hover:text-[#2563eb]"
-                                }`}
-                        >
-                            {category.icon}
-                            {category.name}
-                        </button>
-                    ))}
+                    <div className="flex md:flex-wrap md:justify-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+                        {faqCategories.map((category, index) => (
+                            <button
+                                key={index}
+                                onClick={() => {
+                                    setActiveCategory(index);
+                                    setActiveIndex(0);
+                                }}
+                                className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 whitespace-nowrap flex-shrink-0 ${activeCategory === index
+                                    ? "bg-gradient-to-r from-[#030f45] to-[#2563eb] text-white shadow-lg"
+                                    : "bg-white text-gray-600 border border-gray-200 hover:border-[#2563eb] hover:text-[#2563eb]"
+                                    }`}
+                            >
+                                {category.icon}
+                                {category.name}
+                            </button>
+                        ))}
+                    </div>
                 </motion.div>
 
                 {/* FAQ Accordion */}
