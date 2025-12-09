@@ -10,7 +10,7 @@ import GridPattern from './backgrounds/GridPattern';
 
 const StrategySection = () => {
     return (
-        <section className="bg-white text-black py-24 px-4 md:px-8 relative overflow-hidden">
+        <section className="bg-white text-black py-12 md:py-20 lg:py-24 px-4 md:px-8 relative overflow-hidden">
             {/* Background Components */}
             <AnimatedGradient variant="cool" intensity="light" />
             <FloatingShapes variant="default" count={4} />

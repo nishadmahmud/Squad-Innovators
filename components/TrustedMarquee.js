@@ -62,7 +62,7 @@ const TrustedMarquee = () => {
     ];
 
     return (
-        <div className='py-20 relative overflow-hidden bg-white'>
+        <div className='py-10 md:py-16 lg:py-20 relative overflow-hidden bg-white'>
             {/* New Background Components */}
             <AnimatedGradient variant="blue" intensity="light" />
             <FloatingShapes variant="default" count={6} />
@@ -70,7 +70,7 @@ const TrustedMarquee = () => {
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header Section */}
-                <div className="text-center mb-12">
+                <div className="text-center mb-6 md:mb-12">
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -107,19 +107,19 @@ const TrustedMarquee = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+                    className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8 md:mb-12"
                 >
                     {stats.map((stat, index) => (
-                        <div key={index} className="group relative">
+                        <div key={index} className="group relative h-full">
                             <div className={`absolute -inset-0.5 bg-gradient-to-r ${stat.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300`}></div>
-                            <div className="relative bg-white/80 backdrop-blur-sm border border-white/60 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                                <div className={`inline-flex p-2 rounded-xl bg-gradient-to-r ${stat.gradient} text-white mb-3`}>
-                                    {stat.icon}
+                            <div className="relative bg-white/80 backdrop-blur-sm border border-white/60 rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full min-h-[140px] md:min-h-[160px] flex flex-col justify-center">
+                                <div className={`inline-flex p-1.5 md:p-2 rounded-xl bg-gradient-to-r ${stat.gradient} text-white mb-2 md:mb-3 w-fit`}>
+                                    {React.cloneElement(stat.icon, { className: 'w-4 h-4 md:w-6 md:h-6' })}
                                 </div>
-                                <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent tabular-nums`}>
+                                <div className={`text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent tabular-nums leading-tight`}>
                                     {stat.value}
                                 </div>
-                                <div className="text-sm text-gray-600 font-medium mt-1">{stat.label}</div>
+                                <div className="text-xs md:text-sm text-gray-600 font-medium mt-1 leading-tight">{stat.label}</div>
                             </div>
                         </div>
                     ))}
@@ -131,18 +131,18 @@ const TrustedMarquee = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.4 }}
-                    className="mb-12"
+                    className="mb-8 md:mb-12"
                 >
-                    <h3 className="text-center text-lg font-bold text-gray-700 mb-6">Industries We Serve</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <h3 className="text-center text-base md:text-lg font-bold text-gray-700 mb-4 md:mb-6">Industries We Serve</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
                         {industries.map((industry, index) => (
-                            <div key={index} className="bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl p-4 flex items-center gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                                <div className="p-2 rounded-lg bg-gradient-to-br from-[#030f45] to-[#2563eb] text-white">
-                                    {industry.icon}
+                            <div key={index} className="bg-white/60 backdrop-blur-sm border border-gray-200 rounded-xl p-3 md:p-4 flex items-center gap-2 md:gap-3 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                <div className="p-1.5 md:p-2 rounded-lg bg-gradient-to-br from-[#030f45] to-[#2563eb] text-white flex-shrink-0">
+                                    {React.cloneElement(industry.icon, { className: 'w-4 h-4 md:w-6 md:h-6' })}
                                 </div>
-                                <div>
-                                    <div className="font-bold text-gray-800">{industry.name}</div>
-                                    <div className="text-xs text-gray-500">{industry.count} clients</div>
+                                <div className="min-w-0 flex-1">
+                                    <div className="font-bold text-gray-800 text-xs md:text-sm leading-tight truncate">{industry.name}</div>
+                                    <div className="text-[10px] md:text-xs text-gray-500 leading-tight">{industry.count} clients</div>
                                 </div>
                             </div>
                         ))}
@@ -155,11 +155,11 @@ const TrustedMarquee = () => {
                     <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-indigo-50 via-blue-50 to-transparent z-10 pointer-events-none"></div>
 
                     <Marquee gradient={false} speed={40} pauseOnHover={true} className="py-8">
-                        <div className="flex items-center gap-12 px-6">
+                        <div className="flex items-center gap-6 md:gap-12 px-3 md:px-6">
                             {logos.map((logo, index) => (
-                                <div key={index} className="group relative w-40 h-24 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-2xl border border-white/40 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                                <div key={index} className="group relative w-28 h-16 md:w-40 md:h-24 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-xl md:rounded-2xl border border-white/40 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
                                     <Image
-                                        className='object-contain w-full h-full p-4 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500'
+                                        className='object-contain w-full h-full p-2 md:p-4 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500'
                                         width={150}
                                         height={80}
                                         alt='client_logo'

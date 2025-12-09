@@ -29,7 +29,7 @@ export default function OurProjects() {
     const activeProject = featuredProjects[activeindex];
 
     return (
-        <section id="projects" className="py-24 bg-white relative overflow-hidden">
+        <section id="projects" className="py-12 md:py-20 lg:py-24 bg-white relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <AnimatedGradient variant="cool" intensity="light" />
@@ -39,7 +39,7 @@ export default function OurProjects() {
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-6 text-center md:text-left">
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-8 md:mb-16 gap-6 text-center md:text-left">
                     <div className="max-w-2xl">
                         <motion.span
                             initial={{ opacity: 0, y: 10 }}

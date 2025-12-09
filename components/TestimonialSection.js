@@ -49,7 +49,7 @@ const testimonials = [
 
 const TestimonialSection = () => {
     return (
-        <section className="py-20 bg-gradient-to-br from-[#030f45] to-[#1e3a8a] relative overflow-hidden">
+        <section className="py-10 md:py-16 lg:py-20 bg-gradient-to-br from-[#030f45] to-[#1e3a8a] relative overflow-hidden">
             {/* Background Components */}
             <AnimatedGradient variant="purple" intensity="medium" />
             <FloatingShapes variant="cool" count={7} />

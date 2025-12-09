@@ -71,7 +71,7 @@ const FAQSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section className="py-10 md:py-16 lg:py-20 bg-white relative overflow-hidden">
             {/* Background Components */}
             <AnimatedGradient variant="blue" intensity="light" />
             <FloatingShapes variant="default" count={5} />

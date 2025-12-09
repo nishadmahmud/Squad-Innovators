@@ -29,7 +29,7 @@ const industryStats = [
 
 const TrustedBy = () => {
     return (
-        <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <section className="py-10 md:py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
             {/* Background Elements */}
             <AnimatedGradient variant="blue" intensity="light" />
             <FloatingShapes variant="default" count={7} />

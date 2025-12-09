@@ -64,7 +64,7 @@ export default function StepCards() {
     const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-20 lg:py-24 bg-white relative overflow-hidden">
             {/* Background Components */}
             <AnimatedGradient variant="cool" intensity="light" />
             <FloatingShapes variant="default" count={5} />

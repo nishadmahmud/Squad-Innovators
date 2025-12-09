@@ -10,9 +10,8 @@ import GridPattern from './backgrounds/GridPattern';
 
 const CTASection = () => {
     return (
-        <section className="py-24 relative overflow-hidden bg-gradient-to-br from-[#030f45] to-[#1e3a8a]">
+        <section className="py-12 md:py-20 lg:py-24 relative overflow-hidden bg-gradient-to-br from-[#030f45] to-[#1e3a8a]">
             {/* Background Components */}
-            <AnimatedGradient variant="purple" intensity="strong" />
             <FloatingShapes variant="cool" count={8} />
             <GridPattern variant="mesh" opacity={0.08} color="#60a5fa" />
 

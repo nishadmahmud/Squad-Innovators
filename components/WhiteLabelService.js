@@ -10,9 +10,8 @@ import GridPattern from './backgrounds/GridPattern';
 
 export default function WhiteLabelService() {
     return (
-        <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#030f45] to-[#1e3a8a]">
+        <section className="py-10 md:py-16 lg:py-20 relative overflow-hidden bg-gradient-to-br from-[#030f45] to-[#1e3a8a]">
             {/* Background Components */}
-            <AnimatedGradient variant="purple" intensity="strong" />
             <FloatingShapes variant="cool" count={6} />
             <GridPattern variant="mesh" opacity={0.05} color="#60a5fa" />
 

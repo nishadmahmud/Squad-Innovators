@@ -83,7 +83,7 @@ const OurServices = () => {
     };
 
     return (
-        <section id="service" className="py-20 bg-gray-50 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <section id="service" className="py-10 md:py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             {/* Background Elements */}
             {/* Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">

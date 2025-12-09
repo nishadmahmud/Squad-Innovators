@@ -138,7 +138,7 @@ const TechStackTabs = () => {
     const [activeTab, setActiveTab] = useState("Frontend");
 
     return (
-        <section className="py-20 relative overflow-hidden bg-gray-50">
+        <section className="py-10 md:py-16 lg:py-20 relative overflow-hidden bg-gray-50">
             {/* Simple Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
@@ -192,8 +192,8 @@ const TechStackTabs = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: idx * 0.05 }}
                                 className={`relative px-6 py-3 rounded-full font-semibold transition-all duration-300 text-sm whitespace-nowrap ${activeTab === tab
-                                        ? "text-white shadow-lg"
-                                        : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
+                                    ? "text-white shadow-lg"
+                                    : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
                                     }`}
                             >
                                 {activeTab === tab && (

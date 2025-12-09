@@ -58,35 +58,39 @@ export default function TopBanner() {
                         <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-accent/20 rounded-full blur-[60px]"></div>
                     </div>
 
-                    <div className="container mx-auto px-4 py-3 relative z-10">
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 text-center md:text-left">
+                    <div className="container mx-auto px-4 py-2.5 md:py-3 relative z-10">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 md:gap-6 text-center">
 
-                            {/* Offer Text */}
-                            <div className="flex items-center gap-3">
-                                <span className="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">
+                            {/* Mobile Layout: Stacked */}
+                            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center">
+                                {/* LIMITED TIME Badge */}
+                                <span className="bg-red-600 text-white text-[10px] sm:text-xs font-bold px-2 py-1 rounded animate-pulse whitespace-nowrap">
                                     LIMITED TIME
                                 </span>
-                                <p className="text-sm md:text-base font-medium">
-                                    Get <span className="text-secondary font-bold text-lg">30% OFF</span> on All Products & Services!
+
+                                {/* Offer Text */}
+                                <p className="text-xs sm:text-sm md:text-base font-medium leading-tight">
+                                    Get <span className="text-secondary font-bold text-sm sm:text-base md:text-lg">30% OFF</span> on All Products & Services!
                                 </p>
                             </div>
 
-                            {/* CTA */}
+                            {/* CTA Button */}
                             <Link
                                 href="/contact"
-                                className="group flex items-center gap-2 text-sm font-bold text-secondary hover:text-white transition-colors"
+                                className="group flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-bold text-secondary hover:text-white transition-colors whitespace-nowrap mt-1 sm:mt-0"
                             >
                                 Snatch The Deal
-                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight size={14} className="sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
 
                         {/* Close Button */}
                         <button
                             onClick={() => setIsVisible(false)}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-white transition-colors"
+                            className="absolute right-2 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 p-1 text-white/60 hover:text-white transition-colors"
+                            aria-label="Close banner"
                         >
-                            <X size={18} />
+                            <X size={16} className="sm:w-[18px] sm:h-[18px]" />
                         </button>
                     </div>
                 </motion.div>

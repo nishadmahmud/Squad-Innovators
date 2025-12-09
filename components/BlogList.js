@@ -71,14 +71,14 @@ export default function BlogList() {
     const regularBlogs = blogs.slice(1);
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-12 md:py-20 lg:py-24 bg-white relative overflow-hidden">
             {/* Background Components */}
             <AnimatedGradient variant="blue" intensity="light" />
             <FloatingShapes variant="default" count={5} />
             <GridPattern variant="dots" opacity={0.05} color="#2563eb" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8 md:mb-16">
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
