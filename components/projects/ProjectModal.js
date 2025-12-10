@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose, onPrev, onNext, allProjects }) {
+    const modalContentRef = useRef(null);
+
     // Keyboard navigation
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -19,11 +21,32 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, allProj
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose, onPrev, onNext]);
 
-    // Prevent body scroll when modal is open
+    // Prevent body scroll and capture wheel events for modal
     useEffect(() => {
         document.body.style.overflow = 'hidden';
+
+        const handleWheel = (e) => {
+            // Check if the scroll is happening on the scrollable image container
+            const isScrollableImage = e.target.closest('.modal-image-scroll');
+
+            // If scrolling on the image, let it handle its own scroll
+            if (isScrollableImage) {
+                return;
+            }
+
+            // Otherwise, redirect scroll to modal content
+            if (modalContentRef.current) {
+                e.preventDefault();
+                modalContentRef.current.scrollTop += e.deltaY * 5;
+            }
+        };
+
+        // Add wheel event listener with passive: false to allow preventDefault
+        window.addEventListener('wheel', handleWheel, { passive: false });
+
         return () => {
             document.body.style.overflow = 'unset';
+            window.removeEventListener('wheel', handleWheel);
         };
     }, []);
 
@@ -47,6 +70,7 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, allProj
 
                 {/* Modal Content */}
                 <motion.div
+                    ref={modalContentRef}
                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
