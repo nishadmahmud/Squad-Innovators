@@ -105,15 +105,33 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, allProj
                             </div>
                         </div>
 
-                        {/* Project Image */}
-                        <div className="relative h-64 md:h-96 bg-gray-100 rounded-2xl overflow-hidden mb-6">
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                className="object-cover"
-                                unoptimized
-                            />
+                        {/* Project Image - Scrollable Full Screen or Regular */}
+                        <div className="relative bg-gray-100 rounded-2xl overflow-hidden mb-6">
+                            {project.fullScreenImage ? (
+                                // Full-screen scrollable image
+                                <div className="relative h-[400px] md:h-[500px] overflow-y-auto modal-image-scroll">
+                                    <Image
+                                        src={project.fullScreenImage}
+                                        alt={`${project.title} - Full Homepage`}
+                                        width={1920}
+                                        height={5000}
+                                        className="w-full h-auto"
+                                        unoptimized
+                                        priority
+                                    />
+                                </div>
+                            ) : (
+                                // Regular fixed-height image
+                                <div className="relative h-64 md:h-96">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover"
+                                        unoptimized
+                                    />
+                                </div>
+                            )}
                         </div>
 
                         {/* Project Details */}
@@ -198,8 +216,8 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, allProj
                             onClick={onPrev}
                             disabled={!hasPrev}
                             className={`p-3 rounded-full transition-colors ${hasPrev
-                                    ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                                    : 'bg-gray-50 text-gray-300 cursor-not-allowed'
+                                ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                                : 'bg-gray-50 text-gray-300 cursor-not-allowed'
                                 }`}
                         >
                             <ChevronLeft className="w-5 h-5" />
@@ -211,8 +229,8 @@ export default function ProjectModal({ project, onClose, onPrev, onNext, allProj
                             onClick={onNext}
                             disabled={!hasNext}
                             className={`p-3 rounded-full transition-colors ${hasNext
-                                    ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                                    : 'bg-gray-50 text-gray-300 cursor-not-allowed'
+                                ? 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                                : 'bg-gray-50 text-gray-300 cursor-not-allowed'
                                 }`}
                         >
                             <ChevronRight className="w-5 h-5" />
