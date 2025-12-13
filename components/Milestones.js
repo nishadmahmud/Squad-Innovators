@@ -5,9 +5,7 @@ import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import { Calendar, Users, Briefcase, Smile, Award, TrendingUp, Code, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
-import AnimatedGradient from './backgrounds/AnimatedGradient';
-import FloatingShapes from './backgrounds/FloatingShapes';
-import GridPattern from './backgrounds/GridPattern';
+
 
 const Milestones = () => {
     const [ref, inView] = useInView({
@@ -63,9 +61,7 @@ const Milestones = () => {
 
     return (
         <section ref={ref} className="relative py-10 md:py-16 lg:py-20 bg-gradient-to-br from-[#030f45] to-[#1e3a8a] overflow-hidden">
-            {/* Background Components */}
-            <FloatingShapes variant="cool" count={8} />
-            <GridPattern variant="mesh" opacity={0.05} color="#60a5fa" />
+
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}

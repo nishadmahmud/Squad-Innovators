@@ -5,10 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Check, Users, Zap, Code, Star, TrendingUp } from 'lucide-react';
 import { servicesData } from '@/lib/servicesData';
-import AnimatedGradient from './backgrounds/AnimatedGradient';
-import FloatingShapes from './backgrounds/FloatingShapes';
-import GridPattern from './backgrounds/GridPattern';
-import MouseGlow from './backgrounds/MouseGlow';
+
 
 const OurServices = () => {
     const [activeFilter, setActiveFilter] = useState('all');
@@ -85,22 +82,7 @@ const OurServices = () => {
 
     return (
         <section id="service" className="py-10 md:py-16 lg:py-20 bg-gray-50 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-            {/* Background Elements */}
-            {/* Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <AnimatedGradient variant="blue" intensity="light" />
-                <FloatingShapes variant="default" count={6} />
-                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-100/40 via-gray-50 to-gray-50 opacity-50"></div>
-                <GridPattern variant="dots" opacity={0.05} color="#2563eb" />
-            </div>
-            {/* Mouse Glow Effect */}
-            <MouseGlow
-                color="#2563eb"
-                size={400}
-                blur={120}
-                opacity={0.12}
-                lag={0.15}
-            />
+
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Header */}

@@ -1,20 +1,25 @@
 "use client";
 
+import dynamic from 'next/dynamic';
 import Banner from "../components/Banner";
-import Milestones from "../components/Milestones";
-import TrustedMarquee from "../components/TrustedMarquee";
-import OurServices from "../components/OurServices";
-import OurProjects from "../components/OurProjects";
-import TrustedBy from "../components/TrustedBy";
-import StepCards from "../components/StepCards";
-import WhiteLabelService from "../components/WhiteLabelService";
-import TechStackTabs from "../components/TechStackTabs";
-import TestimonialSection from "../components/TestimonialSection";
-import IndustryExpertises from "../components/IndustryExpertises";
-import StrategySection from "../components/StrategySection";
-import BlogList from "../components/BlogList";
-import CTASection from "../components/CTASection";
-import FAQSection from "../components/FAQSection";
+
+// Lazy load below-fold components with loading states
+const TrustedMarquee = dynamic(() => import("../components/TrustedMarquee"), {
+  loading: () => <div className="h-96 bg-gray-50 animate-pulse" />
+});
+const OurServices = dynamic(() => import("../components/OurServices"));
+const Milestones = dynamic(() => import("../components/Milestones"));
+const OurProjects = dynamic(() => import("../components/OurProjects"));
+const TrustedBy = dynamic(() => import("../components/TrustedBy"));
+const StepCards = dynamic(() => import("../components/StepCards"));
+const WhiteLabelService = dynamic(() => import("../components/WhiteLabelService"));
+const TechStackTabs = dynamic(() => import("../components/TechStackTabs"));
+const TestimonialSection = dynamic(() => import("../components/TestimonialSection"));
+const IndustryExpertises = dynamic(() => import("../components/IndustryExpertises"));
+const StrategySection = dynamic(() => import("../components/StrategySection"));
+const FAQSection = dynamic(() => import("../components/FAQSection"));
+const BlogList = dynamic(() => import("../components/BlogList"));
+const CTASection = dynamic(() => import("../components/CTASection"));
 
 export default function Home() {
   return (

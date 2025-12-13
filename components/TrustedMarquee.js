@@ -5,9 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Marquee from 'react-fast-marquee';
 import { motion } from 'framer-motion';
 import { Building2, Globe, TrendingUp, Award, Users, Zap } from 'lucide-react';
-import AnimatedGradient from './backgrounds/AnimatedGradient';
-import FloatingShapes from './backgrounds/FloatingShapes';
-import GridPattern from './backgrounds/GridPattern';
+
 
 const TrustedMarquee = () => {
     const [count, setCount] = useState(0);
@@ -62,11 +60,7 @@ const TrustedMarquee = () => {
     ];
 
     return (
-        <div className='py-10 md:py-16 lg:py-20 relative overflow-hidden bg-white'>
-            {/* New Background Components */}
-            <AnimatedGradient variant="blue" intensity="light" />
-            <FloatingShapes variant="default" count={6} />
-            <GridPattern variant="dots" opacity={0.08} color="#2563eb" />
+        <div className='py-10 md:py-16 lg:py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white'>
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header Section */}

@@ -10,16 +10,23 @@ export default function OfferPopup() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Show popup on mount (page load/refresh)
-        const timer = setTimeout(() => {
-            setIsVisible(true);
-        }, 1000); // Small delay for better UX
+        // Check if popup was already shown in this session
+        const hasSeenPopup = sessionStorage.getItem('offerPopupSeen');
 
-        return () => clearTimeout(timer);
+        if (!hasSeenPopup) {
+            // Show popup on mount (page load/refresh)
+            const timer = setTimeout(() => {
+                setIsVisible(true);
+            }, 2000); // Increased delay for better UX
+
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     const closePopup = () => {
         setIsVisible(false);
+        // Mark as seen for this session
+        sessionStorage.setItem('offerPopupSeen', 'true');
     };
 
     return (

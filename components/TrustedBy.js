@@ -3,10 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Building2, TrendingUp, Globe, Star, Quote } from "lucide-react";
-import AnimatedGradient from './backgrounds/AnimatedGradient';
-import FloatingShapes from './backgrounds/FloatingShapes';
-import GridPattern from './backgrounds/GridPattern';
-import GeometricShapes from './backgrounds/GeometricShapes';
+
 
 const companies = [
     { name: "Satsuma Corporation", category: "Japanese Website", logo: "/satsuna.png", width: 120, testimonial: "Outstanding quality and professionalism" },
@@ -31,11 +28,7 @@ const industryStats = [
 const TrustedBy = () => {
     return (
         <section className="py-10 md:py-16 lg:py-20 bg-gray-50 relative overflow-hidden">
-            {/* Background Elements */}
-            <AnimatedGradient variant="blue" intensity="light" />
-            <FloatingShapes variant="default" count={7} />
-            <GridPattern variant="dots" opacity={0.06} color="#2563eb" />
-            <GeometricShapes variant="default" count={3} />
+
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
