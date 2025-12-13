@@ -170,6 +170,48 @@ const AboutPageContent = () => {
                 </div>
             </section>
 
+            {/* Company News Video Section */}
+            <section className="container mx-auto px-4 mb-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="max-w-5xl mx-auto"
+                >
+                    <div className="text-center mb-10">
+                        <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-xs font-bold tracking-wider uppercase mb-4">
+                            In The News
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                            Squad Innovators <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Featured</span>
+                        </h2>
+                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                            Watch our company's journey and achievements as featured in the media
+                        </p>
+                    </div>
+
+                    <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-blue-100 bg-gradient-to-br from-white to-blue-50 p-4 md:p-8">
+                        <div className="relative aspect-video rounded-xl overflow-hidden shadow-lg">
+                            <iframe
+                                className="w-full h-full"
+                                src="https://www.youtube.com/embed/L4iTbN-Djck?si=LjYxGRmL7Rr-jIPK"
+                                title="Squad Innovators - Company News"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                            ></iframe>
+                        </div>
+                        <div className="mt-6 text-center">
+                            <p className="text-gray-600 text-sm md:text-base">
+                                Discover how Squad Innovators is making waves in the tech industry
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+            </section>
+
             {/* Stats Section */}
             <section className="bg-primary py-20 text-white relative overflow-hidden" ref={ref}>
                 <div className="absolute top-0 left-0 w-full h-full opacity-10">
