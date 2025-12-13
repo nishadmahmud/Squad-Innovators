@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone, Play } from "lucide-react";
@@ -9,6 +9,19 @@ import WaveBackground from "./WaveBackground";
 import ParticleNetwork from "./backgrounds/ParticleNetwork";
 
 const Banner = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Detect mobile devices
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <div id="home" className="relative w-full min-h-screen flex items-center pt-20 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-[#030f45]">
             {/* Dynamic Background */}
@@ -20,17 +33,19 @@ const Banner = () => {
                 <div className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none">
                     <WaveBackground />
                 </div>
-                {/* Particle Network */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <ParticleNetwork
-                        particleCount={50}
-                        color="#00C8E0"
-                        lineColor="#2563eb"
-                        maxDistance={120}
-                        mouseRadius={180}
-                        speed={0.3}
-                    />
-                </div>
+                {/* Particle Network - Disabled on Mobile */}
+                {!isMobile && (
+                    <div className="absolute inset-0 pointer-events-none">
+                        <ParticleNetwork
+                            particleCount={30}
+                            color="#00C8E0"
+                            lineColor="#2563eb"
+                            maxDistance={100}
+                            mouseRadius={150}
+                            speed={0.2}
+                        />
+                    </div>
+                )}
             </div>
 
             <div className="container mx-auto px-6 max-w-7xl relative z-10">
