@@ -6,7 +6,7 @@ import Link from "next/link";
 import { dummyBlogs } from "@/lib/blogData";
 
 // Sample userId (replace this dynamically if needed)
-const userId = 202;
+const userId = 280;
 
 export default function BlogPageContent() {
     const [blogs, setBlogs] = useState([]);
