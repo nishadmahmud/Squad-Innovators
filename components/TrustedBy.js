@@ -11,11 +11,11 @@ const companies = [
     { name: "BROTHERS", category: "E-Commerce", logo: "/brothers.png", width: 100, testimonial: "Exceeded all expectations" },
     { name: "Gadget Bodda", category: "E-Commerce", logo: "/bodda.png", width: 120, testimonial: "Best development partner we've had" },
     { name: "Apple Mart", category: "E-Commerce", logo: "/apple_mart.png", width: 130, testimonial: "Incredible attention to detail" },
-    { name: "DLM Properties", category: "Real-Estate", logo: "/dlm.png", width: 90, testimonial: "Delivered beyond our requirements" },
+    { name: "DLM Properties", category: "Real-Estate", logo: "/dlm.webp", width: 90, testimonial: "Delivered beyond our requirements" },
     { name: "Afrin Pharma", category: "Pharmacy", logo: "/apPharma.png", width: 80, testimonial: "Professional and reliable team" },
-    { name: "Bhai Bhai", category: "Garments & Apparels", logo: "/bhai-bhai.png", width: 90, testimonial: "Highly recommend their services" },
-    { name: "Corporate Care", category: "HRM & Payroll", logo: "/corporate-care.png", width: 120, testimonial: "Streamlined our HR processes" },
-    { name: "Donation", category: "Donation Management", logo: "/dontaion.png", width: 80, testimonial: "Made our platform user-friendly" },
+    { name: "Bhai Bhai", category: "Garments & Apparels", logo: "/bhai-bhai.webp", width: 90, testimonial: "Highly recommend their services" },
+    { name: "Corporate Care", category: "HRM & Payroll", logo: "/corporate-care.webp", width: 120, testimonial: "Streamlined our HR processes" },
+    { name: "Donation", category: "Donation Management", logo: "/dontaion.webp", width: 80, testimonial: "Made our platform user-friendly" },
 ];
 
 const industryStats = [

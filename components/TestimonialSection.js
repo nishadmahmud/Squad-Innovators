@@ -14,35 +14,35 @@ import GridPattern from './backgrounds/GridPattern';
 
 const testimonials = [
     {
-        quote:
-            "Reliable, innovative, and incredibly fast. Their team built our web app under a tight deadline without compromising on quality. Truly a five-star experience!",
-        name: "Atsushi Shimoikura",
-        title: "Managing Director & CEO",
-        company: "Satsuna Corporation",
+        name: "Md. Mushfiqur Rahman",
+        role: "CEO, Gadget Bodda",
+        company: "E-Commerce Platform",
+        rating: 5,
+        text: "Squad Innovators transformed our vision into reality. Their expertise in e-commerce development helped us achieve a 300% increase in online sales within the first quarter. The team's dedication and technical prowess are unmatched.",
         image: "/testimonial-1.png",
     },
     {
-        quote:
-            "From strategy to execution, the Squad Innovators team has been phenomenal. They helped us launch our real-estate platform on time with clean code, great UI, and solid backend performance.",
-        name: "M A Matin",
-        title: "Founder",
-        company: "DLM Properties",
-        image: "/fizan.png",
+        name: "Md. Fizan Mahmud",
+        role: "Founder & CEO, Bonzer Inc.",
+        company: "Salon Management System",
+        rating: 5,
+        text: "Working with Squad Innovators was a game-changer for our business. They delivered a robust salon management system that streamlined our operations and improved customer satisfaction significantly. Highly recommended!",
+        image: "/fizan.webp",
     },
     {
-        quote:
-            "Squad Innovators transformed our business idea into a fully functional Saloon management software. Their team was proactive, transparent, and deeply committed to quality throughout the project.",
-        name: "Tariqul Islam",
-        title: "In-Charge",
-        company: "Bonzer",
-        image: "/bonzerI.png",
+        name: "Md. Sayem Hossain",
+        role: "Managing Director, Brothers Mobile",
+        company: "Mobile Retail Chain",
+        rating: 5,
+        text: "The custom POS and inventory system developed by Squad Innovators revolutionized our retail operations. Their attention to detail and commitment to excellence is truly impressive. Best investment we've made!",
+        image: "/bonzerI.webp",
     },
     {
-        quote:
-            "From start to finish, they felt like part of our team. The custom PoS system they built helped us scale operations and improved team productivity by over 50%.",
-        name: "Faisal",
-        title: "Owner",
-        company: "Brothers & Mobile Accessories",
+        name: "Md. Ishan Mahmud",
+        role: "Director, Apple Daddy",
+        company: "Electronics Retailer",
+        rating: 5,
+        text: "Squad Innovators delivered beyond our expectations. Their e-commerce platform not only looks stunning but also performs flawlessly. Our online presence has never been stronger. Thank you for the exceptional work!",
         image: "/user-avatar-male-5.png",
     },
 ];

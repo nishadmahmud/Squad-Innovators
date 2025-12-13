@@ -84,7 +84,7 @@ const CTASection = () => {
                 >
                     <div className="flex items-center gap-2">
                         <div className="flex -space-x-2">
-                            {["/fizan.png", "/sayem.jpg", "/mushfiq.jpg"].map((src, i) => (
+                            {["/fizan.webp", "/sayem.webp", "/mushfiq.webp"].map((src, i) => (
                                 <div key={i} className="w-10 h-10 rounded-full border-2 border-[#030f45] overflow-hidden">
                                     <img src={src} alt="Client" className="w-full h-full object-cover" />
                                 </div>

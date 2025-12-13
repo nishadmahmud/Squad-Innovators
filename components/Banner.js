@@ -86,10 +86,10 @@ const Banner = () => {
                         <div className="flex items-center gap-6 pt-8 border-t border-white/10 w-full">
                             <div className="flex -space-x-4">
                                 {[
-                                    "/fizan.png",
-                                    "/sayem.jpg",
-                                    "/mushfiq.jpg",
-                                    "/mazhar.jpg"
+                                    "/fizan.webp",
+                                    "/sayem.webp",
+                                    "/mushfiq.webp",
+                                    "/evan-sir.webp"
                                 ].map((src, i) => (
                                     <div key={i} className="w-12 h-12 rounded-full border-2 border-[#030f45] overflow-hidden">
                                         <Image
@@ -130,7 +130,7 @@ const Banner = () => {
                             >
                                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-50"></div>
                                 <Image
-                                    src="/banner_dashboard.png"
+                                    src="/banner_dashboard.webp"
                                     alt="Dashboard"
                                     fill
                                     className="object-contain p-8 drop-shadow-2xl"

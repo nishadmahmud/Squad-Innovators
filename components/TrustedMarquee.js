@@ -35,12 +35,12 @@ const TrustedMarquee = () => {
         "/apple_mart.png",
         "/satsuna.png",
         "/brothers.png",
-        "/bhai-bhai.png",
-        "/dontaion.png",
+        "/bhai-bhai.webp",
+        "/dontaion.webp",
         "/bonzer.png",
         "/apPharma.png",
-        "/corporate-care.png",
-        "/dlm.png",
+        "/corporate-care.webp",
+        "/dlm.webp",
         "/mobile_club.png",
         "/PerfectGadgetBD-logo (1) 1.png"
     ];

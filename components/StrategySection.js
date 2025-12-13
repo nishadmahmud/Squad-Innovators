@@ -43,7 +43,7 @@ const StrategySection = () => {
                             {/* Main Image */}
                             <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-10">
                                 <Image
-                                    src="/evan-sir.jpg"
+                                    src="/evan-sir.webp"
                                     alt="Team Lead"
                                     fill
                                     className="object-cover"
@@ -68,7 +68,7 @@ const StrategySection = () => {
                                 transition={{ delay: 0.4 }}
                                 className="absolute -bottom-8 -left-6 md:-left-12 w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20"
                             >
-                                <Image src="/mazhar.jpg" alt="Team Member" fill className="object-cover" unoptimized />
+                                <Image src="/sayem.webp" alt="Team Member" fill className="object-cover" unoptimized />
                             </motion.div>
 
                             {/* Stats Badge */}
