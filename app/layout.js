@@ -24,9 +24,9 @@ export const metadata = {
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import SocialSidebar from "../components/SocialSidebar";
-
 import TopBanner from "../components/TopBanner";
 import OfferPopup from "../components/OfferPopup";
+import MotionProvider from "../components/MotionProvider";
 
 export default function RootLayout({ children }) {
   return (
@@ -40,15 +40,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white overflow-x-hidden`}
       >
-        <OfferPopup />
-        <TopBanner />
-        <SocialSidebar />
-        <div className="w-full lg:max-w-[1400px] mx-auto relative bg-white min-h-screen flex flex-col">
-          <Navbar />
-          {children}
-        </div>
-        <Footer />
+        <MotionProvider>
+          <OfferPopup />
+          <TopBanner />
+          <SocialSidebar />
+          <div className="w-full lg:max-w-[1400px] mx-auto relative bg-white min-h-screen flex flex-col">
+            <Navbar />
+            {children}
+          </div>
+          <Footer />
+        </MotionProvider>
       </body>
-    </html >
+    </html>
   );
 }
