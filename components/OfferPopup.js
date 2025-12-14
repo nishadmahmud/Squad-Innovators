@@ -13,10 +13,9 @@ export default function OfferPopup() {
         const hasSeenPopup = sessionStorage.getItem('offerPopupSeen');
 
         if (!hasSeenPopup) {
-            // Show popup after page fully loads (4 second delay)
             const timer = setTimeout(() => {
                 setIsVisible(true);
-            }, 4000); // Increased delay to avoid performance impact
+            }, 4000);
 
             return () => clearTimeout(timer);
         }
