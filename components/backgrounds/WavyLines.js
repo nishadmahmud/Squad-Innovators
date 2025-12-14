@@ -12,8 +12,14 @@ export default function WavyLines({
     speed = 2
 }) {
     const [lines, setLines] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        // Check if mobile
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
         // Generate lines only on client to avoid hydration mismatch
         setLines(Array.from({ length: lineCount }, (_, i) => ({
             id: i,
@@ -21,6 +27,8 @@ export default function WavyLines({
             delay: i * 0.5,
             strokeWidth: 2 - (i * 0.3)
         })));
+
+        return () => window.removeEventListener('resize', checkMobile);
     }, [lineCount]);
 
     const generatePath = (yOffset, phase = 0) => {
@@ -37,8 +45,8 @@ export default function WavyLines({
         return `M ${points.join(' L ')}`;
     };
 
-    // Don't render until client-side hydration
-    if (lines.length === 0) return null;
+    // Don't render on mobile or until client-side hydration
+    if (isMobile || lines.length === 0) return null;
 
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

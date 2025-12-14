@@ -5,8 +5,14 @@ import { motion } from 'framer-motion';
 
 export default function FloatingShapes({ variant = 'default', count = 5 }) {
     const [shapes, setShapes] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        // Check if mobile
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
         // Generate shapes only on client to avoid hydration mismatch
         setShapes(Array.from({ length: count }, (_, i) => ({
             id: i,
@@ -18,6 +24,8 @@ export default function FloatingShapes({ variant = 'default', count = 5 }) {
             opacity: Math.random() * 0.1 + 0.05,
             shape: ['circle', 'square', 'triangle'][Math.floor(Math.random() * 3)]
         })));
+
+        return () => window.removeEventListener('resize', checkMobile);
     }, [count]);
 
     const getShapeColor = (index) => {
@@ -29,6 +37,9 @@ export default function FloatingShapes({ variant = 'default', count = 5 }) {
         const palette = colors[variant] || colors.default;
         return palette[index % palette.length];
     };
+
+    // Don't render on mobile
+    if (isMobile) return null;
 
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
