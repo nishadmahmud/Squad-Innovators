@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function WavyLines({
@@ -11,12 +11,17 @@ export default function WavyLines({
     frequency = 0.02,
     speed = 2
 }) {
-    const lines = Array.from({ length: lineCount }, (_, i) => ({
-        id: i,
-        yOffset: (i * 100) / lineCount,
-        delay: i * 0.5,
-        strokeWidth: 2 - (i * 0.3)
-    }));
+    const [lines, setLines] = useState([]);
+
+    useEffect(() => {
+        // Generate lines only on client to avoid hydration mismatch
+        setLines(Array.from({ length: lineCount }, (_, i) => ({
+            id: i,
+            yOffset: (i * 100) / lineCount,
+            delay: i * 0.5,
+            strokeWidth: 2 - (i * 0.3)
+        })));
+    }, [lineCount]);
 
     const generatePath = (yOffset, phase = 0) => {
         const points = [];
@@ -31,6 +36,9 @@ export default function WavyLines({
 
         return `M ${points.join(' L ')}`;
     };
+
+    // Don't render until client-side hydration
+    if (lines.length === 0) return null;
 
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
