@@ -3,8 +3,6 @@
 import Image from "next/image";
 import React, { useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
-import WavyLines from "./backgrounds/WavyLines";
-import CodeRain from "./backgrounds/CodeRain";
 
 const techStack = {
     "Backend": [
@@ -141,24 +139,10 @@ const TechStackTabs = () => {
 
     return (
         <section className="py-10 md:py-16 lg:py-20 relative overflow-hidden bg-gray-50">
-            {/* Enhanced Background Elements */}
+            {/* Static Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-30"></div>
                 <div className="absolute bottom-20 right-20 w-72 h-72 bg-indigo-100 rounded-full blur-3xl opacity-30"></div>
-                <WavyLines
-                    lineCount={4}
-                    color="#2563eb"
-                    opacity={0.08}
-                    amplitude={30}
-                    frequency={0.015}
-                    speed={2.5}
-                />
-                <CodeRain
-                    color="#2563eb"
-                    density={0.3}
-                    speed={0.8}
-                    fontSize={12}
-                />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
