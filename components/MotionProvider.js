@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 /**
  * Global Motion Provider that reduces all Framer Motion animations
- * - Mobile: Completely disabled (duration: 0)
+ * - Mobile: Completely disabled (no MotionConfig wrapper)
  * - Desktop: Very fast (duration: 0.15s) to reduce lag
  */
 export default function MotionProvider({ children }) {
@@ -14,17 +14,17 @@ export default function MotionProvider({ children }) {
 
     useEffect(() => {
         console.log('🎭 MotionProvider - Mobile detected:', isMobile);
-        console.log('🎭 Animations:', isMobile ? 'DISABLED (0s)' : 'REDUCED (0.15s)');
+        console.log('🎭 Animations:', isMobile ? 'COMPLETELY DISABLED' : 'REDUCED (0.15s)');
     }, [isMobile]);
 
-    // Mobile: instant (no animation)
-    // Desktop: very fast (reduced animation)
-    const transition = isMobile
-        ? { duration: 0, delay: 0 }
-        : { duration: 0.15, delay: 0 };
+    // On mobile: don't wrap with MotionConfig at all (prevents white screen)
+    // On desktop: wrap with fast transitions
+    if (isMobile) {
+        return <>{children}</>;
+    }
 
     return (
-        <MotionConfig transition={transition}>
+        <MotionConfig transition={{ duration: 0.15, delay: 0 }}>
             {children}
         </MotionConfig>
     );
