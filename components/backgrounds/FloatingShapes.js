@@ -1,19 +1,24 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function FloatingShapes({ variant = 'default', count = 5 }) {
-    const shapes = Array.from({ length: count }, (_, i) => ({
-        id: i,
-        size: Math.random() * 200 + 100,
-        x: Math.random() * 100,
-        y: Math.random() * 100,
-        duration: Math.random() * 20 + 15,
-        delay: Math.random() * 5,
-        opacity: Math.random() * 0.1 + 0.05,
-        shape: ['circle', 'square', 'triangle'][Math.floor(Math.random() * 3)]
-    }));
+    const [shapes, setShapes] = useState([]);
+
+    useEffect(() => {
+        // Generate shapes only on client to avoid hydration mismatch
+        setShapes(Array.from({ length: count }, (_, i) => ({
+            id: i,
+            size: Math.random() * 200 + 100,
+            x: Math.random() * 100,
+            y: Math.random() * 100,
+            duration: Math.random() * 20 + 15,
+            delay: Math.random() * 5,
+            opacity: Math.random() * 0.1 + 0.05,
+            shape: ['circle', 'square', 'triangle'][Math.floor(Math.random() * 3)]
+        })));
+    }, [count]);
 
     const getShapeColor = (index) => {
         const colors = {
