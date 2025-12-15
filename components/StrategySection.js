@@ -2,82 +2,46 @@
 
 import Image from "next/image";
 import React from "react";
-import { Phone, Users, Rocket } from "lucide-react";
+import { Phone, Users, Rocket, TrendingUp } from "lucide-react";
 
 const StrategySection = () => {
     return (
-        <section className="bg-white text-black py-12 md:py-20 lg:py-24 px-4 md:px-8 relative overflow-hidden">
-            {/* Simple Static Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 pointer-events-none"></div>
+        <section className="bg-gray-50 py-16 md:py-20 lg:py-24 px-4 md:px-8 relative overflow-hidden">
+            {/* Subtle Background Elements */}
+            <div className="absolute inset-0 opacity-[0.03]" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50 L50 0 M50 50 L100 50 M50 50 L50 100 M50 50 L0 50' stroke='%23000' stroke-width='0.5' fill='none'/%3E%3C/svg%3E")`,
+            }} />
 
-            <div className="container mx-auto max-w-7xl relative z-10">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="container mx-auto max-w-6xl relative z-10">
+                <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-                    {/* Left Side: Modern Image Composition */}
-                    <div className="relative">
-                        {/* Abstract Background Shape */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-50 to-purple-50 rounded-full blur-3xl -z-10"></div>
-
-                        <div className="relative mx-auto w-full max-w-md aspect-[4/5]">
-                            {/* Main Image */}
-                            <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-10">
-                                <Image
-                                    src="/evan-sir.webp"
-                                    alt="Team Lead"
-                                    fill
-                                    className="object-cover"
-                                    unoptimized
-                                />
-                            </div>
-
-                            {/* Floating Card 1 (Top Right) */}
-                            <div className="absolute -top-12 -right-6 md:-right-12 w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20">
-                                <Image src="/ishan.jpeg" alt="Team Member" fill className="object-cover" unoptimized />
-                            </div>
-
-                            {/* Floating Card 2 (Bottom Left) */}
-                            <div className="absolute -bottom-8 -left-6 md:-left-12 w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-20">
-                                <Image src="/sayem.webp" alt="Team Member" fill className="object-cover" unoptimized />
-                            </div>
-
-                            {/* Stats Badge */}
-                            <div className="absolute bottom-8 right-8 md:-right-4 bg-white p-4 rounded-2xl shadow-xl z-30 flex items-center gap-3 border border-gray-100">
-                                <div className="bg-primary/10 p-2 rounded-full text-primary">
-                                    <Users size={24} />
-                                </div>
-                                <div>
-                                    <p className="text-2xl font-bold text-gray-900 leading-none">20+</p>
-                                    <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">Expert Engineers</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Side: Content & Steps */}
-                    <div className="space-y-12">
-                        <div className="mb-8">
-                            <span className="text-secondary font-bold tracking-wider uppercase text-sm">
+                    {/* Left Side: Our Process */}
+                    <div className="space-y-10">
+                        {/* Header */}
+                        <div>
+                            <span className="text-[#0d9488] font-bold tracking-wider uppercase text-sm">
                                 Our Process
                             </span>
-                            <h2 className="text-4xl md:text-5xl font-bold text-primary mt-3 leading-tight">
+                            <h2 className="text-4xl md:text-5xl font-bold text-[#030f45] mt-3 leading-tight">
                                 From Concept to <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Digital Reality</span>
+                                <span className="text-[#0d9488]">Digital Reality</span>
                             </h2>
                         </div>
 
+                        {/* Steps */}
                         <div className="space-y-8 relative">
                             {/* Connecting Line */}
-                            <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-gray-100 -z-10"></div>
+                            <div className="absolute left-[27px] top-8 bottom-8 w-0.5 bg-gray-200 -z-10"></div>
 
                             {/* Step 1 */}
-                            <div className="flex gap-8 group">
+                            <div className="flex gap-6 group">
                                 <div className="relative">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 z-10 relative">
-                                        <Phone size={24} className="text-primary group-hover:text-white transition-colors" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#0d9488] group-hover:border-[#0d9488] transition-all duration-300 z-10 relative">
+                                        <Phone size={24} className="text-[#0d9488] group-hover:text-white transition-colors" />
                                     </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#0d9488] transition-colors">
                                         Initiate a Strategy Session
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
@@ -87,14 +51,14 @@ const StrategySection = () => {
                             </div>
 
                             {/* Step 2 */}
-                            <div className="flex gap-8 group">
+                            <div className="flex gap-6 group">
                                 <div className="relative">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-300 z-10 relative">
-                                        <Users size={24} className="text-secondary group-hover:text-white transition-colors" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#0d9488] group-hover:border-[#0d9488] transition-all duration-300 z-10 relative">
+                                        <Users size={24} className="text-[#0d9488] group-hover:text-white transition-colors" />
                                     </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-secondary transition-colors">
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#0d9488] transition-colors">
                                         Shape Your Dream Team
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
@@ -104,14 +68,14 @@ const StrategySection = () => {
                             </div>
 
                             {/* Step 3 */}
-                            <div className="flex gap-8 group">
+                            <div className="flex gap-6 group">
                                 <div className="relative">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-100 shadow-sm flex items-center justify-center group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 z-10 relative">
-                                        <Rocket size={24} className="text-purple-600 group-hover:text-white transition-colors" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#0d9488] group-hover:border-[#0d9488] transition-all duration-300 z-10 relative">
+                                        <Rocket size={24} className="text-[#0d9488] group-hover:text-white transition-colors" />
                                     </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                                <div className="flex-1">
+                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#0d9488] transition-colors">
                                         Begin Your Journey
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
@@ -121,6 +85,80 @@ const StrategySection = () => {
                             </div>
                         </div>
                     </div>
+
+                    {/* Right Side: Circular Image Composition */}
+                    <div className="relative flex items-center justify-center min-h-[500px]">
+                        {/* Growth Badge - Positioned top right, outside the circle */}
+                        <div className="absolute -top-4 right-0 md:right-8 bg-white rounded-2xl shadow-xl p-4 border border-gray-100 z-20">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <TrendingUp className="w-5 h-5 text-blue-600" />
+                                </div>
+                                <div>
+                                    <p className="text-[#0d9488] font-bold text-sm">89% <span className="font-normal text-gray-500">growth</span></p>
+                                </div>
+                            </div>
+                            <p className="text-gray-700 text-sm mt-2 font-medium">
+                                Empowering your business to thrive
+                            </p>
+                        </div>
+
+                        {/* Main Circular Frame */}
+                        <div className="relative w-[300px] h-[300px] md:w-[360px] md:h-[360px]">
+                            {/* Outer Ring 1 (largest) */}
+                            <div className="absolute -inset-16 rounded-full border border-dashed border-gray-200" />
+
+                            {/* Outer Ring 2 */}
+                            <div className="absolute -inset-8 rounded-full border border-dashed border-gray-300" />
+
+                            {/* Main Dashed Circle Border */}
+                            <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-300" />
+
+                            {/* Main Image */}
+                            <div className="absolute inset-4 rounded-full overflow-hidden shadow-2xl border-4 border-white">
+                                <Image
+                                    src="/evan-sir.webp"
+                                    alt="CEO"
+                                    fill
+                                    className="object-cover"
+                                    unoptimized
+                                />
+                            </div>
+
+                            {/* Floating Avatar Circles - Positioned ON the outer ring */}
+                            {/* Top */}
+                            <div className="absolute top-1/2 -left-20 -translate-x-1/2 w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-lg bg-white z-10">
+                                <Image src="/ishan.jpeg" alt="Ishan" fill className="object-cover" unoptimized />
+                            </div>
+
+                            {/* Right */}
+                            <div className="absolute top-1/2 -right-20 -translate-y-1/2 w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-lg bg-white z-10">
+                                <Image src="/sayem.webp" alt="Sayem" fill className="object-cover" unoptimized />
+                            </div>
+
+                            {/* Bottom */}
+                            <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-lg bg-white z-10">
+                                <Image src="/mushfiq.webp" alt="Mushfiq" fill className="object-cover" unoptimized />
+                            </div>
+
+                            {/* Left */}
+                            <div className="absolute -top-20 left-1/2 -translate-y-1/2 w-14 h-14 rounded-full overflow-hidden border-3 border-white shadow-lg bg-white z-10">
+                                <Image src="/fizan.png" alt="Fizan" fill className="object-cover" unoptimized />
+                            </div>
+                        </div>
+
+                        {/* Decorative Elements */}
+                        <div className="absolute bottom-0 left-0 w-16 h-16 opacity-20">
+                            <svg viewBox="0 0 100 100" className="w-full h-full text-[#0d9488]">
+                                <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div className="absolute bottom-1/3 -right-4 w-12 h-12 opacity-10">
+                            <svg viewBox="0 0 100 100" className="w-full h-full text-blue-600">
+                                <circle cx="50" cy="50" r="40" fill="currentColor" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -128,3 +166,4 @@ const StrategySection = () => {
 };
 
 export default StrategySection;
+
