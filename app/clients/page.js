@@ -2,9 +2,10 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { clientsData } from '@/lib/clientsData';
+import Link from 'next/link';
+import { clients } from '@/lib/clients_route_data';
 import { motion } from 'framer-motion';
-import { Building2 } from 'lucide-react';
+import { Building2, ExternalLink } from 'lucide-react';
 import GeometricShapes from '@/components/backgrounds/GeometricShapes';
 import AnimatedGradient from '@/components/backgrounds/AnimatedGradient';
 import GridPattern from '@/components/backgrounds/GridPattern';
@@ -48,9 +49,9 @@ export default function ClientsPage() {
                         Our Portfolio
                     </motion.span>
                     <motion.h1 variants={fadeInUp} className="text-4xl md:text-6xl font-bold text-primary mb-6">
-                        Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">500+ Clients</span>
+                        Trusted by <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">100+ Clients</span>
                     </motion.h1>
-                    <motion.p variants={fadeInUp} className="text-gray-600 max-w-4xl mx-auto text-lg md:text-xl leading-relaxed">
+                    <motion.p variants={fadeInUp} className="text-gray-600 max-w-5xl mx-auto text-lg md:text-xl leading-relaxed">
                         We are proud to have partnered with these amazing companies to build digital solutions that drive growth.
                     </motion.p>
                 </motion.div>
@@ -62,7 +63,7 @@ export default function ClientsPage() {
                     variants={staggerContainer}
                     className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
                 >
-                    {clientsData.map((client) => (
+                    {clients.map((client) => (
                         <motion.div
                             key={client.id}
                             variants={fadeInUp}
@@ -74,20 +75,34 @@ export default function ClientsPage() {
                             <div className="relative w-24 h-24 mb-6 rounded-2xl overflow-hidden bg-white p-4 shadow-inner group-hover:shadow-md transition-all duration-300 border border-gray-50 group-hover:border-blue-100">
                                 <Image
                                     src={client.logo}
-                                    alt={client.title}
+                                    alt={client.name}
                                     fill
-                                    className="object-contain p-2 filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                                    className="object-contain p-2 group-hover:grayscale-0 transition-all duration-500"
                                     unoptimized
                                 />
                             </div>
 
                             <h3 className="relative text-lg font-bold text-gray-700 group-hover:text-primary transition-colors">
-                                {client.title}
+                                {client.name}
                             </h3>
 
-                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-200">
-                                <Building2 size={16} />
-                            </div>
+                            {/* Website Link */}
+                            {client.website && (
+                                <Link
+                                    href={client.website}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-500 hover:text-blue-700"
+                                >
+                                    <ExternalLink size={16} />
+                                </Link>
+                            )}
+
+                            {!client.website && (
+                                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-blue-200">
+                                    <Building2 size={16} />
+                                </div>
+                            )}
                         </motion.div>
                     ))}
                 </motion.div>
@@ -95,3 +110,4 @@ export default function ClientsPage() {
         </div>
     );
 }
+
