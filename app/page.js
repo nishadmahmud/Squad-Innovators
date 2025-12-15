@@ -17,6 +17,7 @@ const TechStackTabs = dynamic(() => import("../components/TechStackTabs"));
 const TestimonialSection = dynamic(() => import("../components/TestimonialSection"));
 const IndustryExpertises = dynamic(() => import("../components/IndustryExpertises"));
 const StrategySection = dynamic(() => import("../components/StrategySection"));
+const ValuesSection = dynamic(() => import("../components/ValuesSection"));
 const FAQSection = dynamic(() => import("../components/FAQSection"));
 const BlogList = dynamic(() => import("../components/BlogList"));
 const CTASection = dynamic(() => import("../components/CTASection"));
@@ -38,6 +39,7 @@ export default function Home() {
         <TestimonialSection />
         <IndustryExpertises />
         <StrategySection />
+        <ValuesSection />
         <FAQSection />
         <BlogList />
         <CTASection />

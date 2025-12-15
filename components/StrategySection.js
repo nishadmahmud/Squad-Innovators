@@ -19,12 +19,12 @@ const StrategySection = () => {
                     <div className="space-y-10">
                         {/* Header */}
                         <div>
-                            <span className="text-[#0d9488] font-bold tracking-wider uppercase text-sm">
+                            <span className="text-[#2563eb] font-bold tracking-wider uppercase text-sm">
                                 Our Process
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold text-[#030f45] mt-3 leading-tight">
                                 From Concept to <br />
-                                <span className="text-[#0d9488]">Digital Reality</span>
+                                <span className="text-[#2563eb]">Digital Reality</span>
                             </h2>
                         </div>
 
@@ -36,12 +36,12 @@ const StrategySection = () => {
                             {/* Step 1 */}
                             <div className="flex gap-6 group">
                                 <div className="relative">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#0d9488] group-hover:border-[#0d9488] transition-all duration-300 z-10 relative">
-                                        <Phone size={24} className="text-[#0d9488] group-hover:text-white transition-colors" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#2563eb] group-hover:border-[#2563eb] transition-all duration-300 z-10 relative">
+                                        <Phone size={24} className="text-[#2563eb] group-hover:text-white transition-colors" />
                                     </div>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#0d9488] transition-colors">
+                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#2563eb] transition-colors">
                                         Initiate a Strategy Session
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
@@ -53,12 +53,12 @@ const StrategySection = () => {
                             {/* Step 2 */}
                             <div className="flex gap-6 group">
                                 <div className="relative">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#0d9488] group-hover:border-[#0d9488] transition-all duration-300 z-10 relative">
-                                        <Users size={24} className="text-[#0d9488] group-hover:text-white transition-colors" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#2563eb] group-hover:border-[#2563eb] transition-all duration-300 z-10 relative">
+                                        <Users size={24} className="text-[#2563eb] group-hover:text-white transition-colors" />
                                     </div>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#0d9488] transition-colors">
+                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#2563eb] transition-colors">
                                         Shape Your Dream Team
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
@@ -70,12 +70,12 @@ const StrategySection = () => {
                             {/* Step 3 */}
                             <div className="flex gap-6 group">
                                 <div className="relative">
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#0d9488] group-hover:border-[#0d9488] transition-all duration-300 z-10 relative">
-                                        <Rocket size={24} className="text-[#0d9488] group-hover:text-white transition-colors" />
+                                    <div className="w-14 h-14 rounded-2xl bg-white border border-gray-200 shadow-sm flex items-center justify-center group-hover:bg-[#2563eb] group-hover:border-[#2563eb] transition-all duration-300 z-10 relative">
+                                        <Rocket size={24} className="text-[#2563eb] group-hover:text-white transition-colors" />
                                     </div>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#0d9488] transition-colors">
+                                    <h3 className="text-xl font-bold text-[#030f45] mb-2 group-hover:text-[#2563eb] transition-colors">
                                         Begin Your Journey
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">
@@ -95,7 +95,7 @@ const StrategySection = () => {
                                     <TrendingUp className="w-5 h-5 text-blue-600" />
                                 </div>
                                 <div>
-                                    <p className="text-[#0d9488] font-bold text-sm">89% <span className="font-normal text-gray-500">growth</span></p>
+                                    <p className="text-[#2563eb] font-bold text-sm">89% <span className="font-normal text-gray-500">growth</span></p>
                                 </div>
                             </div>
                             <p className="text-gray-700 text-sm mt-2 font-medium">
@@ -149,7 +149,7 @@ const StrategySection = () => {
 
                         {/* Decorative Elements */}
                         <div className="absolute bottom-0 left-0 w-16 h-16 opacity-20">
-                            <svg viewBox="0 0 100 100" className="w-full h-full text-[#0d9488]">
+                            <svg viewBox="0 0 100 100" className="w-full h-full text-[#2563eb]">
                                 <path d="M50 0 L100 50 L50 100 L0 50 Z" fill="currentColor" />
                             </svg>
                         </div>
