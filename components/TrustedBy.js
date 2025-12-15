@@ -19,7 +19,7 @@ const companies = [
 ];
 
 const industryStats = [
-    { icon: <Building2 className="w-5 h-5" />, label: "E-Commerce", count: "15+", color: "from-blue-500 to-cyan-500" },
+    { icon: <Building2 className="w-5 h-5" />, label: "E-Commerce", count: "75+", color: "from-blue-500 to-cyan-500" },
     { icon: <Globe className="w-5 h-5" />, label: "Real Estate", count: "12+", color: "from-purple-500 to-pink-500" },
     { icon: <TrendingUp className="w-5 h-5" />, label: "Healthcare", count: "8+", color: "from-emerald-500 to-teal-500" },
     { icon: <Star className="w-5 h-5" />, label: "Others", count: "15+", color: "from-amber-500 to-orange-500" },
@@ -49,7 +49,7 @@ const TrustedBy = () => {
                         className="text-5xl md:text-6xl font-bold leading-tight tracking-tight text-[#030f45] mb-4"
                     >
                         Chosen by{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#030f45] to-[#2563eb]">50+ Companies</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#030f45] to-[#2563eb]">100+ Companies</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
