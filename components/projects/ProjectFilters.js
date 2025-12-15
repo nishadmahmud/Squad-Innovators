@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 const categories = [
     { id: 'all', label: 'All Works' },
     { id: 'website', label: 'Website' },
-    { id: 'graphics', label: 'Graphics' },
     { id: 'mobile-apps', label: 'Mobile Apps' },
     { id: 'management-software', label: 'Management Software' },
 ];
@@ -24,8 +23,8 @@ export default function ProjectFilters({ selectedCategory, onCategoryChange }) {
                             transition={{ duration: 0.3, delay: index * 0.05 }}
                             onClick={() => onCategoryChange(category.id)}
                             className={`px-6 py-3 rounded-full font-medium whitespace-nowrap transition-all ${selectedCategory === category.id
-                                    ? 'bg-secondary text-white shadow-lg'
-                                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                ? 'bg-secondary text-white shadow-lg'
+                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                 }`}
                         >
                             {category.label}
